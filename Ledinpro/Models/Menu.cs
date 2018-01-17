@@ -12,10 +12,17 @@ namespace Ledinpro.Models
 
         [Display(Name = "标题")]
         [Required(ErrorMessage = "请输入标题！")]
-        public string Title { get; set; }
+        public string Title 
+        { 
+            get; 
+            set; 
+        }
 
         [Display(Name = "菜单链接")]
         [Required(ErrorMessage = "请输入链接!")]
-        public string Link { get; set; }
+        public string Link 
+        { 
+            get; set;
+        }
     }
 }

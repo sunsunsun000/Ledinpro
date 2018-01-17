@@ -29,6 +29,9 @@ namespace Ledinpro
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDbContext<LedinproContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();

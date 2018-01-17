@@ -11,11 +11,11 @@ namespace Ledinpro.Models
         public int ID { get; set; }
 
         [Display(Name = "产品编码")]
-        [Required, StringLength(64)]
+        [Required, StringLength(64), MaxLength(64)]
         public string Code { get; set; }
 
         [Display(Name = "名称")]
-        [Required, StringLength(128)]
+        [Required, StringLength(128), MaxLength(128)]
         public string Name { get; set; }
 
         [Display(Name = "类型")]
@@ -95,5 +95,15 @@ namespace Ledinpro.Models
         // IES文件
         [Display(Name = "产品IES文件")]
         public string Ies { get; set; }
+
+        // 导航属性
+        // 产品特点
+        public ICollection<ProductFeature> ProductFeatures { get; set;}
+
+        // 预览图片
+        public ICollection<PreviewProduct> PreviewProducts { get; set; }
+
+        // 子产品：规格、配件
+        public ICollection<SubProduct> SubProducts { get; set; }
     }
 }
