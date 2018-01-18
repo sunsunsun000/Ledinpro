@@ -26,15 +26,50 @@ namespace Ledinpro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<ApplicationDbContext>(options => 
+                //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                                                        options.UseSqlite("Data Source=ApplicationDb.db"));
+            
+            //services.AddDbContext<LedinproContext>(options => 
+                                                   //options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
+            // 使用
+            services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
 
-            services.AddDbContext<LedinproContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
-
+            // 验证服务
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            // 配置验证信息
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredUniqueChars = 6;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.Cookie.Expiration = TimeSpan.FromDays(150);
+                options.LoginPath = "/Account/Login";  // If the LoginPath is not set in here, ASP.NET Core will default to /Account/Login
+                options.LogoutPath = "/Account/Logout"; // If the LogoutPath is not set in here, ASP.NET Core will default to /Account/Logout
+                options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDenied is not set in here, ASP.NET Core will default to /Account/AccessDenied
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();

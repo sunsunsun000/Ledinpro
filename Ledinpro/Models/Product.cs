@@ -77,24 +77,8 @@ namespace Ledinpro.Models
         [Display(Name = "电脑版产品图片")]
         public string PicturePath { get; set; }
 
-        [Display(Name = "电脑版产品图片")]
+        [Display(Name = "手机版产品图片")]
         public string MobilePicturePath { get; set; }
-
-        // 产品指导书
-        [Display(Name = "产品指导书")]
-        public string Guide { get; set; }
-
-        // 安装指导书
-        [Display(Name = "安装指导书")]
-        public string InstallationGuide { get; set; }
-
-        // datasheet
-        [Display(Name = "产品Datasheet文件")]
-        public string Datasheet { get; set; }
-
-        // IES文件
-        [Display(Name = "产品IES文件")]
-        public string Ies { get; set; }
 
         // 导航属性
         // 产品特点
@@ -105,5 +89,11 @@ namespace Ledinpro.Models
 
         // 子产品：规格、配件
         public ICollection<SubProduct> SubProducts { get; set; }
+
+        // 附件
+        public ICollection<ProductFile> ProductFiles { get; set; }
+
+        // 评论
+        public ICollection<ProductComment> ProductComments { get; set; }
     }
 }

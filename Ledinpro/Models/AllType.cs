@@ -20,7 +20,7 @@ namespace Ledinpro.Models
         [Display(Name = "水族照明")]
         AQUARIUM = 3,
         [Display(Name = "其它类型")]
-        LightingTypeEnd = 4
+        LightingTypeEnd = 100
     }
 
     /// <summary>
@@ -33,13 +33,13 @@ namespace Ledinpro.Models
         [Display(Name = "配件")]
         ACCESSORIES = 1,
         [Display(Name = "其它类型")]
-        OTHERTYPE = 2
+        OTHERTYPE = 100
     }
 
     public enum ProductFileType
     {
         DATASHEET = 0,
         IES = 1,
-        OTHERTYPE = 2
+        OTHERTYPE = 100
     }
 }

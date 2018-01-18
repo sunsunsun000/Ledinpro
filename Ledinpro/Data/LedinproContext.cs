@@ -21,7 +21,9 @@ namespace Ledinpro.Data
         public DbSet<News> News { get; set; }
         public DbSet<PreviewProduct> PreviewProducts { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
+        public DbSet<ProductFile> ProductFiles { get; set; }
         public DbSet<ProductScene> ProductScene { get; set; }
         public DbSet<SaleContactInfo> SaleContactInfos { get; set; }
         public DbSet<SubProduct> SubProducts { get; set; }
@@ -39,7 +41,9 @@ namespace Ledinpro.Data
             modelBuilder.Entity<News>().ToTable("News");
             modelBuilder.Entity<PreviewProduct>().ToTable("PreviewProduct");
             modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<ProductComment>().ToTable("ProductComment");
             modelBuilder.Entity<ProductFeature>().ToTable("ProductFeature");
+            modelBuilder.Entity<ProductFile>().ToTable("ProductFile");
             modelBuilder.Entity<ProductScene>().ToTable("ProductScene");
             modelBuilder.Entity<SaleContactInfo>().ToTable("SaleContactInfo");
             modelBuilder.Entity<SubProduct>().ToTable("SubProduct");

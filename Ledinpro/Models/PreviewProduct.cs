@@ -5,25 +5,15 @@ namespace Ledinpro.Models
 {
     public class PreviewProduct
     {
-        public int Id
-        {
-            get;
-            set;
-        }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "请输入名称！")]
         [Display(Name = "名称")]
         [MaxLength(255)]
-        public string Name
-        {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
         [Display(Name = "图片")]
-        public string PicturePath
-        {
-            get;
+        public string PicturePath { get;
             set;
         }
 
