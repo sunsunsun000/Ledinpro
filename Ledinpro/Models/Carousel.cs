@@ -58,7 +58,5 @@ namespace Ledinpro.Models
             get;
             set;
         }
-
-        // 轮播图类型
     }
 }
