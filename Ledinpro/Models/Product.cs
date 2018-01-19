@@ -80,6 +80,18 @@ namespace Ledinpro.Models
         [Display(Name = "手机版产品图片")]
         public string MobilePicturePath { get; set; }
 
+        // 创建人Id
+        public Guid UserId { get; set; }
+
+        // 创建时间
+        public DateTime? CreateTime { get; set; }
+
+        // 修改人
+        public string EditUser { get; set; }
+
+        // 修改时间
+        public DateTime? EditTime { get; set; }
+
         // 导航属性
         // 产品特点
         public ICollection<ProductFeature> ProductFeatures { get; set;}
