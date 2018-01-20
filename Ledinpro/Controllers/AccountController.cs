@@ -78,7 +78,7 @@ namespace Ledinpro.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "登录失败！");
                     return View(model);
                 }
             }
@@ -446,7 +446,7 @@ namespace Ledinpro.Controllers
         public async Task<Guid> GetCurrentUserId(){
             ApplicationUser user = await _userManager.GetUserAsync(HttpContext.User);
 
-            return user.Id;
+            return Guid.NewGuid();
         }
 
         #region Helpers

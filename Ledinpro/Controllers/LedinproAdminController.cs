@@ -12,6 +12,7 @@ namespace Ledinpro.Controllers
     /// <summary>
     /// 网站后台管理控制器
     /// </summary>
+    [Authorize]
     public class LedinproAdminController : Controller
     {
         // GET: /<controller>/
