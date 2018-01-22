@@ -446,7 +446,7 @@ namespace Ledinpro.Controllers
         public async Task<Guid> GetCurrentUserId(){
             ApplicationUser user = await _userManager.GetUserAsync(HttpContext.User);
 
-            return Guid.NewGuid();
+            return user.Id;
         }
 
         #region Helpers
