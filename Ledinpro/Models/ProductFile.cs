@@ -6,27 +6,40 @@ namespace Ledinpro.Models
     /// <summary>
     /// 产品附件表：存储产品对应的附件
     /// </summary>
-    public class ProductFile
+    public class ProductFile : BaseEntity
     {
-        public int Id { get; set; }
-
-        // 产品指导书
+        /// <summary>
+        /// 产品指导书
+        /// </summary>
         [Display(Name = "产品指导书")]
         public string Guide { get; set; }
 
-        // 安装指导书
+        /// <summary>
+        /// 安装指导书
+        /// </summary>
         [Display(Name = "安装指导书")]
         public string InstallationGuide { get; set; }
 
-        // datasheet
+        /// <summary>
+        /// Datasheet
+        /// </summary>
         [Display(Name = "产品Datasheet文件")]
         public string DataSheet { get; set; }
 
-        // IES文件
+        /// <summary>
+        /// IES文件
+        /// </summary>
         [Display(Name = "产品IES文件")]
         public string Ies { get; set; }
 
-        // 关联产品
+        /// <summary>
+        /// 产品Id
+        /// </summary>
         public int ProductId { get; set; }
+
+        /// <summary>
+        /// 关联产品
+        /// </summary>
+        public Product Product { get; set; }
     }
 }

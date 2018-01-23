@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ledinpro.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,8 +14,12 @@ namespace Ledinpro.Controllers
     /// 网站后台管理控制器
     /// </summary>
     [Authorize]
-    public class LedinproAdminController : Controller
+    public class LedinproAdminController : LedinproController
     {
+        public LedinproAdminController(LedinproContext ledinproContext) : base(ledinproContext)
+        {
+        }
+
         // GET: /<controller>/
         public IActionResult Index()
         {

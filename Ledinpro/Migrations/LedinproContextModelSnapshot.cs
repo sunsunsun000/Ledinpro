@@ -22,10 +22,18 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.Carousel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
                     b.Property<string>("Description");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("MobilePicturePath");
 
@@ -49,7 +57,7 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.CompanyInfo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Address")
@@ -58,12 +66,20 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("BackgroundImage");
 
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
                     b.Property<string>("Description")
                         .IsRequired();
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(64);
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -80,10 +96,18 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.Logo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<bool>("Active");
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("LogoPath");
 
@@ -96,8 +120,16 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.Menu", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("Link")
                         .IsRequired();
@@ -105,14 +137,14 @@ namespace Ledinpro.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Menu");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.News", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Author")
@@ -122,7 +154,13 @@ namespace Ledinpro.Migrations
                     b.Property<string>("Content")
                         .IsRequired();
 
-                    b.Property<DateTime?>("EditTime");
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<bool>("PublishOrNot");
 
@@ -142,8 +180,18 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.PreviewProduct", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
+
+                    b.Property<string>("MobilePicturePath");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -153,31 +201,31 @@ namespace Ledinpro.Migrations
 
                     b.Property<int>("ProductId");
 
+                    b.Property<Guid?>("ProductId1");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("PreviewProduct");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.Product", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(64);
 
-                    b.Property<DateTime?>("CreateTime");
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
 
                     b.Property<string>("Description");
 
                     b.Property<string>("Dimming");
-
-                    b.Property<DateTime?>("EditTime");
-
-                    b.Property<string>("EditUser");
 
                     b.Property<string>("Efficient");
 
@@ -189,6 +237,10 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("InputVoltage")
                         .HasMaxLength(64);
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("LightingAngle");
 
@@ -213,7 +265,7 @@ namespace Ledinpro.Migrations
                     b.Property<string>("Ppf")
                         .HasMaxLength(255);
 
-                    b.Property<int?>("ProductSceneId");
+                    b.Property<Guid?>("ProductSceneId");
 
                     b.Property<string>("Specification");
 
@@ -222,12 +274,10 @@ namespace Ledinpro.Migrations
                     b.Property<string>("Type")
                         .IsRequired();
 
-                    b.Property<Guid>("UserId");
-
                     b.Property<string>("Weight")
                         .HasMaxLength(64);
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductSceneId");
 
@@ -236,29 +286,45 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.ProductComment", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Comment")
                         .IsRequired();
 
-                    b.Property<DateTime?>("EditTime");
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<int>("ProductId");
+
+                    b.Property<Guid?>("ProductId1");
 
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("ProductComment");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.ProductFeature", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -268,17 +334,23 @@ namespace Ledinpro.Migrations
 
                     b.Property<int>("ProductId");
 
+                    b.Property<Guid?>("ProductId1");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("ProductFeature");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.ProductFile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
 
                     b.Property<string>("DataSheet");
 
@@ -288,23 +360,37 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("InstallationGuide");
 
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
+
                     b.Property<int>("ProductId");
+
+                    b.Property<Guid?>("ProductId1");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("ProductFile");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.ProductScene", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime?>("CreateDateTime");
+
+                    b.Property<string>("CreateUserName");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500);
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("MobilePicturePath");
 
@@ -323,18 +409,22 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.SaleContactInfo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("EditPerson");
+                    b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<DateTime?>("EditTime");
+                    b.Property<string>("CreateUserName");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(64);
 
                     b.Property<bool>("IsShow");
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -360,32 +450,52 @@ namespace Ledinpro.Migrations
 
             modelBuilder.Entity("Ledinpro.Models.SubProduct", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Code")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(64);
 
-                    b.Property<string>("ColorAngle");
+                    b.Property<string>("ColorAngle")
+                        .HasMaxLength(64);
 
-                    b.Property<string>("Dimming");
+                    b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("Efficient");
+                    b.Property<string>("CreateUserName");
 
-                    b.Property<string>("Lumen");
+                    b.Property<string>("Dimming")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("Efficient")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("InputPower")
+                        .HasMaxLength(64);
+
+                    b.Property<DateTime?>("LastEditDateTime");
+
+                    b.Property<string>("LastEditUserName");
+
+                    b.Property<string>("Lumen")
+                        .HasMaxLength(64);
 
                     b.Property<string>("Name")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(64);
+
+                    b.Property<string>("OutputPower")
+                        .HasMaxLength(64);
 
                     b.Property<string>("PicturePath");
 
-                    b.Property<string>("Power");
-
                     b.Property<int>("ProductId");
+
+                    b.Property<Guid?>("ProductId1");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId1");
 
                     b.ToTable("SubProduct");
                 });
@@ -394,8 +504,7 @@ namespace Ledinpro.Migrations
                 {
                     b.HasOne("Ledinpro.Models.Product", "Product")
                         .WithMany("PreviewProducts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId1");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.Product", b =>
@@ -409,32 +518,28 @@ namespace Ledinpro.Migrations
                 {
                     b.HasOne("Ledinpro.Models.Product")
                         .WithMany("ProductComments")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId1");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.ProductFeature", b =>
                 {
                     b.HasOne("Ledinpro.Models.Product", "Product")
                         .WithMany("ProductFeatures")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId1");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.ProductFile", b =>
                 {
-                    b.HasOne("Ledinpro.Models.Product")
+                    b.HasOne("Ledinpro.Models.Product", "Product")
                         .WithMany("ProductFiles")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId1");
                 });
 
             modelBuilder.Entity("Ledinpro.Models.SubProduct", b =>
                 {
                     b.HasOne("Ledinpro.Models.Product", "Product")
                         .WithMany("SubProducts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProductId1");
                 });
 #pragma warning restore 612, 618
         }

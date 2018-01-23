@@ -3,21 +3,32 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
-    public class ProductFeature
+    /// <summary>
+    /// 产品特点
+    /// </summary>
+    public class ProductFeature : BaseEntity
     {
-        public int Id { get; set; }
-
-        // 特点名称
+        /// <summary>
+        /// 名称
+        /// </summary>
         [Required(ErrorMessage = "名称")]
         [MaxLength(255)]
         [Display(Name = "名称")]
         public string Name { get; set; }
 
-        // 特点图片路径
+        /// <summary>
+        /// 图片
+        /// </summary>
         public string PicturePath { get; set; }
 
-        // 关联的产品
+        /// <summary>
+        /// 关联产品Id
+        /// </summary>
         public int ProductId { get; set; }
+
+        /// <summary>
+        /// 关联产品
+        /// </summary>
         public Product Product { get; set; }
     }
 }

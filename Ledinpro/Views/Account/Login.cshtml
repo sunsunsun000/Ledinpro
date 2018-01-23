@@ -6,63 +6,51 @@
 @inject SignInManager<ApplicationUser> SignInManager
 
 @{
-    Layout = "";
+    Layout = "_UserLayout";
+    ViewData["Title"] = "登录";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>登录系统</title>
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="~/css/AdminLTE.css" />
-    <link rel="stylesheet" href="~/lib/iCheck/square/blue.css" />
-</head>
-
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="/Home/Index" target="_blank"><b>LeDinPro</b></a>
-        </div>
-        <div class="login-box-body">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <p class="login-box-msg">后台管理系统</p>
-            <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
-                <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="邮箱" asp-for="Email" />
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-
-                <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="密码" asp-for="Password" />
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" asp-for="RememberMe" /> @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-xs-4">
-                         <a asp-action="ForgotPassword">忘记密码？</a>
-                    </div>
-                    <div class="col-xs-12">
-                        <button type="submit" class="btn btn-default btn-block btn-flat">登录</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="/Home/Index" target="_blank"><b>LeDinPro</b></a>
     </div>
+    <div class="login-box-body">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <p class="login-box-msg">后台管理系统</p>
+        <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" placeholder="邮箱" asp-for="Email" />
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/iCheck/icheck.js"></script>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" placeholder="密码" asp-for="Password" />
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" asp-for="RememberMe" /> @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <a asp-action="ForgotPassword">忘记密码？</a>
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-default btn-block btn-flat">登录</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 
     <script>
         $(function () {
@@ -73,9 +61,4 @@
             });
         });
     </script>
-
-    @section Scripts {
-        @await Html.PartialAsync("_ValidationScriptsPartial")
-    }
-</body>
-</html>
+}

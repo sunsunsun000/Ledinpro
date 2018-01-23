@@ -3,82 +3,57 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
-    public class SaleContactInfo
+    public class SaleContactInfo : BaseEntity
     {
-        public int Id
-        {
-            get;
-            set;
-        }
-
-        [Required(ErrorMessage = "请输入名字！")]
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        [Required(ErrorMessage = "请输入姓名！")]
         [MaxLength(64)]
-        [Display(Name = "名字")]
-        public string Name
-        {
-            get;
-            set;
-        }
+        [Display(Name = "姓名")]
+        public string Name { get; set; }
 
+        /// <summary>
+        /// 昵称
+        /// </summary>
         [MaxLength(64)]
         [Display(Name = "昵称")]
-        public string NickName
-        {
-            get;
-            set;
-        }
+        public string NickName { get; set; }
 
+        /// <summary>
+        /// 电话
+        /// </summary>
         [Required(ErrorMessage = "请输入电话！")]
         [MaxLength(64)]
         [Display(Name = "电话")]
-        public string Phone
-        {
-            get;
-            set;
-        }
+        public string Phone { get; set; }
 
+        /// <summary>
+        /// 邮箱
+        /// </summary>
         [Required(ErrorMessage = "请输入邮箱！")]
         [MaxLength(64)]
         [Display(Name = "邮箱")]
-        public string Email
-        {
-            get;
-            set;
-        }
+        public string Email { get; set; }
 
+        /// <summary>
+        /// Skype
+        /// </summary>
         [Required(ErrorMessage = "请输入Skype！")]
         [MaxLength(64)]
         [Display(Name = "Skype")]
-        public string Skype
-        {
-            get;
-            set;
-        }
+        public string Skype { get; set; }
 
+        /// <summary>
+        /// 图片
+        /// </summary>
         [Display(Name = "图片")]
-        public string PicturePath
-        {
-            get;
-            set;
-        }
+        public string PicturePath { get; set; }
 
-        [Display(Name = "是否显示")]
-        public bool IsShow
-        {
-            get;
-            set;
-        }
-
-        public string EditPerson
-        {
-            get;
-            set;
-        }
-
-        public DateTime? EditTime
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        /// 是否展示
+        /// </summary>
+        [Display(Name = "是否展示")]
+        public bool IsShow { get; set; }
     }
 }

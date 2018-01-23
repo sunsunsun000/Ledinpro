@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
@@ -19,6 +20,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 建立人
         /// </summary>
+        [MaxLength(255)]
         public string CreateUserName { get; set; }
 
         /// <summary>
@@ -29,6 +31,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 最后修改人
         /// </summary>
+        [MaxLength(255)]
         public string LastEditUserName { get; set; }
 
         /// <summary>

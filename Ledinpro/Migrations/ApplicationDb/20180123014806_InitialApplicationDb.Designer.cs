@@ -11,8 +11,8 @@ using System;
 namespace Ledinpro.Migrations.ApplicationDb
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180121071154_initialApplicationDbContext")]
-    partial class initialApplicationDbContext
+    [Migration("20180123014806_InitialApplicationDb")]
+    partial class InitialApplicationDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
-    public class Carousel
+    public class Carousel : BaseEntity
     {
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "请输入名称！")]
         [MaxLength(64)]
         [Display(Name = "名称")]

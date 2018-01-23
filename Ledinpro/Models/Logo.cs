@@ -9,10 +9,8 @@ namespace Ledinpro.Models
     /// <summary>
     /// Logo
     /// </summary>
-    public class Logo
+    public class Logo : BaseEntity
     {
-        public int Id { get; set; }
-
         [Display(Name = "Logo类型")]
         public string LogoType { get; set; }
 

@@ -4,58 +4,47 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
-    public class ProductScene
+    /// <summary>
+    /// 产品应用场景
+    /// </summary>
+    public class ProductScene : BaseEntity
     {
-        public int Id
-        {
-            get;
-            set;
-        }
-
+        /// <summary>
+        /// 名称
+        /// </summary>
         [Required(ErrorMessage = "请输入场景名称！")]
         [MaxLength(255)]
         [Display(Name = "名称")]
-        public string Name
-        {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
+        /// <summary>
+        /// 场景描述
+        /// </summary>
         [Required(ErrorMessage = "请输入场景描述！")]
         [MaxLength(500)]
         [Display(Name = "描述")]
-        public string Description
-        {
-            get;
-            set;
-        }
+        public string Description { get; set; }
 
+        /// <summary>
+        /// 场景图片
+        /// </summary>
         [Display(Name = "场景图片")]
-        public string PicturePath
-        {
-            get;
-            set;
-        }
+        public string PicturePath { get; set; }
 
+        /// <summary>
+        /// 手机版场景图片
+        /// </summary>
         [Display(Name = "手机版场景图片")]
-        public string MobilePicturePath
-        {
-            get;
-            set;
-        }
+        public string MobilePicturePath { get; set; }
 
-        // 场景类型
-        public string SceneType
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        /// 场景类型
+        /// </summary>
+        public string SceneType { get; set; }
 
-        // 场景包含的产品
-        public ICollection<Product> Products
-        {
-            get;
-            set;
-        }
+        /// <summary>
+        /// 场景包含的产品
+        /// </summary>
+        public ICollection<Product> Products { get; set; }
     }
 }

@@ -4,21 +4,22 @@ using System.ComponentModel.DataAnnotations;
 namespace Ledinpro.Models
 {
     /// <summary>
-    /// 产品评论类
+    /// 产品评论
     /// </summary>
-    public class ProductComment
+    public class ProductComment : BaseEntity
     {
-        public int Id { get; set; }
-
+        /// <summary>
+        /// 评论内容
+        /// </summary>
         [Required(ErrorMessage = "请输入评论！")]
         public string Comment { get; set; }
-
-        public DateTime? EditTime { get; set; }
 
         // 用户Id
         public int UserId { get; set; }
 
-        // 关联产品
+        /// <summary>
+        /// 关联产品Id
+        /// </summary>
         public int ProductId { get; set; }
     }
 }

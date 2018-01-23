@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Ledinpro.Migrations.ApplicationDb
 {
-    public partial class initialApplicationDbContext : Migration
+    public partial class InitialApplicationDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

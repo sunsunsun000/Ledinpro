@@ -13,6 +13,9 @@ namespace Ledinpro.Models
     /// </summary>
     public class ApplicationUser : IdentityUser<Guid>
     {
+        /// <summary>
+        /// 性别
+        /// </summary>
         public string Gender { get; set; }
     }
 }
