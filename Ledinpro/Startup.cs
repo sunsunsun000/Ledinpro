@@ -28,8 +28,8 @@ namespace Ledinpro
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("LedinproAccountConnection")));
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //options.UseSqlite("Data Source=ApplicationDb.db"));
+            // services.AddDbContext<ApplicationDbContext>(options =>
+            // options.UseSqlite("Data Source=ApplicationDb.db"));
             // 试用内存数据库
             // services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
