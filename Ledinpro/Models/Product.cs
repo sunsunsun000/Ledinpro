@@ -142,6 +142,11 @@ namespace Ledinpro.Models
         public string MobilePicturePath { get; set; }
 
         /// <summary>
+        /// 关联场景
+        /// </summary>
+        public ICollection<ProductSceneProduct> ProductSceneProducts { get; set; }
+
+        /// <summary>
         /// 产品特点
         /// </summary>
         public ICollection<ProductFeature> ProductFeatures { get; set;}

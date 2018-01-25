@@ -9,33 +9,26 @@ namespace Ledinpro.Models
     public class ProductFile : BaseEntity
     {
         /// <summary>
-        /// 产品指导书
+        /// 文件类型
         /// </summary>
-        [Display(Name = "产品指导书")]
-        public string Guide { get; set; }
+        [Required(ErrorMessage = "请选择文件类型！")]
+        public ProductFileType FileTpye { get; set; }
 
         /// <summary>
-        /// 安装指导书
+        /// 文件版本号
         /// </summary>
-        [Display(Name = "安装指导书")]
-        public string InstallationGuide { get; set; }
+        [Required(ErrorMessage = "请填写版本号！")]
+        public string Version { get; set; }
 
         /// <summary>
-        /// Datasheet
+        /// 产品文件
         /// </summary>
-        [Display(Name = "产品Datasheet文件")]
-        public string DataSheet { get; set; }
-
-        /// <summary>
-        /// IES文件
-        /// </summary>
-        [Display(Name = "产品IES文件")]
-        public string Ies { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
         /// 产品Id
         /// </summary>
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         /// <summary>
         /// 关联产品

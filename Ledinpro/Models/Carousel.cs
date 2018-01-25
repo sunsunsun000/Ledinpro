@@ -27,6 +27,6 @@ namespace Ledinpro.Models
         public string SortNumber { get; set; }
 
         [Display(Name = "关联产品")]
-        public int RelativeProductId { get; set; }
+        public Guid RelativeProductId { get; set; }
     }
 }

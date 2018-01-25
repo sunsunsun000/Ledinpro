@@ -45,6 +45,6 @@ namespace Ledinpro.Models
         /// <summary>
         /// 场景包含的产品
         /// </summary>
-        public ICollection<Product> Products { get; set; }
+        public ICollection<ProductSceneProduct> ProductSceneProducts { get; set; }
     }
 }

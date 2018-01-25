@@ -36,10 +36,14 @@ namespace Ledinpro.Models
         OTHERTYPE = 100
     }
 
+    /// <summary>
+    /// 文件类型
+    /// </summary>
     public enum ProductFileType
     {
-        DATASHEET = 0,
-        IES = 1,
+        GUIDE = 0,
+        DATASHEET = 1,
+        IES = 2,
         OTHERTYPE = 100
     }
 }
