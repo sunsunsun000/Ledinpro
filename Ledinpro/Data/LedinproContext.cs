@@ -7,6 +7,9 @@ using Ledinpro.Models;
 
 namespace Ledinpro.Data
 {
+    /// <summary>
+    /// Ledinpro数据上下文
+    /// </summary>
     public class LedinproContext : DbContext
     {
         public LedinproContext(DbContextOptions<LedinproContext> options)
@@ -47,6 +50,18 @@ namespace Ledinpro.Data
             modelBuilder.Entity<ProductScene>().ToTable("ProductScene");
             modelBuilder.Entity<SaleContactInfo>().ToTable("SaleContactInfo");
             modelBuilder.Entity<SubProduct>().ToTable("SubProduct");
+
+            // 配置场景和产品多对多关系
+            modelBuilder.Entity<ProductSceneProduct>()
+                        .HasKey(ps => new { ps.ProductSceneId, ps.ProductId });
+            modelBuilder.Entity<ProductSceneProduct>()
+                        .HasOne<ProductScene>(ps => ps.ProductScene)
+                        .WithMany(ps => ps.ProductSceneProducts)
+                        .HasForeignKey(ps => ps.ProductSceneId);
+            modelBuilder.Entity<ProductSceneProduct>()
+                        .HasOne<Product>(p => p.Product)
+                        .WithMany(p => p.ProductSceneProducts)
+                        .HasForeignKey(p => p.ProductId);
         }
     }
 }
