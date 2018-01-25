@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace Ledinpro.Migrations
+namespace Ledinpro.Migrations.Ledinpro
 {
     [DbContext(typeof(LedinproContext))]
-    [Migration("20180123014419_InitialLedinpro")]
-    partial class InitialLedinpro
+    [Migration("20180124113308_InitialLedinproDb")]
+    partial class InitialLedinproDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,13 +28,15 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Description");
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("MobilePicturePath");
 
@@ -69,7 +71,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Description")
                         .IsRequired();
@@ -80,7 +83,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -104,11 +108,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("LogoPath");
 
@@ -126,11 +132,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Link")
                         .IsRequired();
@@ -157,11 +165,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<bool>("PublishOrNot");
 
@@ -186,11 +196,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("MobilePicturePath");
 
@@ -222,7 +234,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Description");
 
@@ -241,7 +254,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("LightingAngle");
 
@@ -295,11 +309,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<int>("ProductId");
 
@@ -321,11 +337,13 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -351,7 +369,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("DataSheet");
 
@@ -363,7 +382,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<int>("ProductId");
 
@@ -383,7 +403,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -391,7 +412,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("MobilePicturePath");
 
@@ -415,7 +437,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -425,7 +448,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -463,7 +487,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("CreateDateTime");
 
-                    b.Property<string>("CreateUserName");
+                    b.Property<string>("CreateUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Dimming")
                         .HasMaxLength(64);
@@ -476,7 +501,8 @@ namespace Ledinpro.Migrations
 
                     b.Property<DateTime?>("LastEditDateTime");
 
-                    b.Property<string>("LastEditUserName");
+                    b.Property<string>("LastEditUserName")
+                        .HasMaxLength(255);
 
                     b.Property<string>("Lumen")
                         .HasMaxLength(64);

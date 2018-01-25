@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace Ledinpro.Migrations.ApplicationDb
+namespace Ledinpro.Migrations
 {
-    public partial class InitialApplicationDb : Migration
+    public partial class InitialLedinproAccountDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

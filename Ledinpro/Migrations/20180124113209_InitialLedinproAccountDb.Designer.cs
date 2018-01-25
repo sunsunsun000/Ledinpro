@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace Ledinpro.Migrations.ApplicationDb
+namespace Ledinpro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180123014806_InitialApplicationDb")]
-    partial class InitialApplicationDb
+    [Migration("20180124113209_InitialLedinproAccountDb")]
+    partial class InitialLedinproAccountDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
