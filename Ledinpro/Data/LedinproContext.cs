@@ -37,6 +37,7 @@ namespace Ledinpro.Data
         /// <param name="modelBuilder">Model builder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // 创建实体数据库表映射
             modelBuilder.Entity<Carousel>().ToTable("Carousel");
             modelBuilder.Entity<CompanyInfo>().ToTable("CompanyInfo");
             modelBuilder.Entity<Logo>().ToTable("Logo");
@@ -55,13 +56,13 @@ namespace Ledinpro.Data
             modelBuilder.Entity<ProductSceneProduct>()
                         .HasKey(ps => new { ps.ProductSceneId, ps.ProductId });
             modelBuilder.Entity<ProductSceneProduct>()
-                        .HasOne<ProductScene>(ps => ps.ProductScene)
-                        .WithMany(ps => ps.ProductSceneProducts)
-                        .HasForeignKey(ps => ps.ProductSceneId);
+                        .HasOne(psp => psp.ProductScene)
+                        .WithMany(psp => psp.ProductSceneProducts)
+                        .HasForeignKey(psp => psp.ProductSceneId);
             modelBuilder.Entity<ProductSceneProduct>()
-                        .HasOne<Product>(p => p.Product)
-                        .WithMany(p => p.ProductSceneProducts)
-                        .HasForeignKey(p => p.ProductId);
+                        .HasOne(psp => psp.Product)
+                        .WithMany(psp => psp.ProductSceneProducts)
+                        .HasForeignKey(psp => psp.ProductId);
         }
     }
 }

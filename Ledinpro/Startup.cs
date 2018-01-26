@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Ledinpro.Data;
 using Ledinpro.Models;
 using Ledinpro.Services;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro
 {
@@ -76,7 +78,15 @@ namespace Ledinpro
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc(mvcConfig =>
+            {
+                // 如果这里配置的话，则默认所有的controller都需要验证才能访问
+                //var policy = new AuthorizationPolicyBuilder()
+                //                 .RequireAuthenticatedUser()
+                //                 .Build();
+
+                //mvcConfig.Filters.Add(new AuthorizeFilter(policy));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

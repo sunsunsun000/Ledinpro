@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Ledinpro.Models
 {
+    /// <summary>
+    /// 场景 产品中间表
+    /// </summary>
     public class ProductSceneProduct
     {
         public Guid ProductSceneId { get; set; }
