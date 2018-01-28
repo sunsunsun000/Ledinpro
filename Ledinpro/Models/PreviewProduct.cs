@@ -20,9 +20,7 @@ namespace Ledinpro.Models
         /// 图片
         /// </summary>
         [Display(Name = "图片")]
-        public string PicturePath { get;
-            set;
-        }
+        public string PicturePath { get; set; }
 
         /// <summary>
         /// 手机版图片
