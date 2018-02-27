@@ -1,14 +1,67 @@
 ﻿body {
-    padding-top: 50px;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* logo大小 */
+.brand {
+    width: 220px;
+    height: 80px;
+}
+
+/* 导航条背景色 */
+.navWhite {
+    background-color: #ffffff;
+    border: none;
+}
+
+/* 设置导航条内补，调整导航条高度 */
+#main-navbar-collapse {
+    padding-top: 20px;
     padding-bottom: 20px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+#main-navbar-collapse a {
+    color: #000000;
+    font-size: 17px;
 }
+
+#main-navbar-collapse a:hover {
+    color: #F37044;
+}
+
+.orangeHr {
+    background-color: #f37044;
+    height: 2px;
+}
+
+.middleMargin {
+    margin-top: 154px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Carousel */
 .carousel-caption p {
@@ -33,3 +86,4 @@
         display: none;
     }
 }
+/******************************待删除***********************************/
