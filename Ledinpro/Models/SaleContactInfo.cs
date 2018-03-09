@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Ledinpro.Models
 {
+    /// <summary>
+    /// 业务员联系信息
+    /// </summary>
     public class SaleContactInfo : BaseEntity
     {
         /// <summary>
