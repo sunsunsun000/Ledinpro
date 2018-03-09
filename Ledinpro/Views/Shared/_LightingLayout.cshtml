@@ -4,7 +4,26 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="lightingBackgoundColor">
+    <nav class="navbar navbar-inverse navbar-fixed-top lightingNav">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/home">
+                    <img class="brand" src="~/images/logo_white_small.svg">
+                </a>
+            </div>
+
+            <div id="lighting-navbar-collapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">LIGHTS</a></li>
+                    <li><a href="#">CONTROL</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
 </body>
 </html>

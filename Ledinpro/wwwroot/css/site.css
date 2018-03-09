@@ -35,6 +35,26 @@ a {
     color: #F37044;
 }
 
+.lightingNav {
+    background-color: #000000;
+    border: none;
+    margin-bottom: 0px;
+}
+
+#lighting-navbar-collapse {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#lighting-navbar-collapse a {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+#lighting-navbar-collapse a:hover {
+    color: #F37044;
+}
+
 .orangeHr {
     background-color: #f37044;
     height: 2px;
@@ -52,6 +72,10 @@ a {
 
 .homeBackgoundColor {
     background-color: #211F1B;
+}
+
+.lightingBackgoundColor {
+    background-color: #000000;
 }
 
 
