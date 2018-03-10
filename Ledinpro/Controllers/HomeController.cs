@@ -20,6 +20,24 @@ namespace Ledinpro.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 商业照明首页
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult LightingIndex()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 植物灯首页
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult PlantIndex()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

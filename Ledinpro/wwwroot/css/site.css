@@ -3,6 +3,10 @@
     margin: 0px;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* logo大小 */
 .brand {
     width: 220px;
@@ -10,9 +14,10 @@
 }
 
 /* 导航条背景色 */
-.navWhite {
+.homeNav {
     background-color: #ffffff;
     border: none;
+    margin-bottom: 0px;
 }
 
 /* 设置导航条内补，调整导航条高度 */
@@ -30,13 +35,47 @@
     color: #F37044;
 }
 
+.lightingNav {
+    background-color: #000000;
+    border: none;
+    margin-bottom: 0px;
+}
+
+#lighting-navbar-collapse {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#lighting-navbar-collapse a {
+    color: #FFFFFF;
+    font-size: 17px;
+}
+
+#lighting-navbar-collapse a:hover {
+    color: #F37044;
+}
+
 .orangeHr {
     background-color: #f37044;
     height: 2px;
+    margin-top: 89px;
+    margin-bottom: 0px;
 }
 
 .middleMargin {
-    margin-top: 154px;
+    padding-top: 50px;
+}
+
+.middleMargin p,h3{
+    text-align: center;
+}
+
+.homeBackgoundColor {
+    background-color: #211F1B;
+}
+
+.lightingBackgoundColor {
+    background-color: #000000;
 }
 
 
@@ -63,6 +102,9 @@
 
 
 
+
+
+/******************************待删除***********************************/
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;

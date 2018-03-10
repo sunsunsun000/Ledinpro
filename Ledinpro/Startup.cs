@@ -28,22 +28,22 @@ namespace Ledinpro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("LedinproAccountConnection")));
             // services.AddDbContext<ApplicationDbContext>(options =>
-            // options.UseSqlite("Data Source=ApplicationDb.db"));
-            // 试用内存数据库
+            // options.UseSqlServer(Configuration.GetConnectionString("LedinproAccountConnection")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlite("Data Source=ApplicationDb.db"));
+            // 使用内存数据库
             // services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
-            services.AddDbContext<LedinproContext>(options => 
-            options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
-            // 使用
-            // services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
+            // services.AddDbContext<LedinproContext>(options => 
+            // options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
+            // 使用Sqlite
+            services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
 
             // 验证服务
             services.AddIdentity<ApplicationUser, ApplicationRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
 
             // 配置验证信息
             services.Configure<IdentityOptions>(options =>
