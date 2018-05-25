@@ -443,7 +443,8 @@ namespace Ledinpro.Controllers
         /// <returns>当前登录用户Id</returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<Guid> GetCurrentUserId(){
+        public async Task<Guid> GetCurrentUserId()
+        {
             ApplicationUser user = await _userManager.GetUserAsync(HttpContext.User);
 
             return user.Id;

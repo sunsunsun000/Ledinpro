@@ -13,6 +13,7 @@ using Ledinpro.Models;
 using Ledinpro.Services;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Ledinpro
 {
@@ -30,8 +31,7 @@ namespace Ledinpro
         {
             // services.AddDbContext<ApplicationDbContext>(options =>
             // options.UseSqlServer(Configuration.GetConnectionString("LedinproAccountConnection")));
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlite("Data Source=ApplicationDb.db"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=ApplicationDb.db"));
             // 使用内存数据库
             // services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
@@ -81,11 +81,11 @@ namespace Ledinpro
             services.AddMvc(mvcConfig =>
             {
                 // 如果这里配置的话，则默认所有的controller都需要验证才能访问
-                //var policy = new AuthorizationPolicyBuilder()
+                // var policy = new AuthorizationPolicyBuilder()
                 //                 .RequireAuthenticatedUser()
                 //                 .Build();
 
-                //mvcConfig.Filters.Add(new AuthorizeFilter(policy));
+                // mvcConfig.Filters.Add(new AuthorizeFilter(policy));
             });
         }
 
@@ -106,7 +106,7 @@ namespace Ledinpro
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

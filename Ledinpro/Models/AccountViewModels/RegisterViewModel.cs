@@ -8,7 +8,7 @@ namespace Ledinpro.Models.AccountViewModels
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "邮箱格式不正确！")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

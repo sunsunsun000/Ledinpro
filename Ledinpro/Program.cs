@@ -23,6 +23,7 @@ namespace Ledinpro
                 var services = scope.ServiceProvider;
                 try
                 {
+                    // 初始化数据库，使用依赖注入获取到服务
                     var context = services.GetRequiredService<LedinproContext>();
                     DbInitializer.Initializer(context);
                 }
@@ -33,7 +34,7 @@ namespace Ledinpro
                     logger.LogError(e, "An error occurred while seeding the database.");
                 }
             }
-
+            
             host.Run();
         }
 
