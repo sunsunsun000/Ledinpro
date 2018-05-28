@@ -24,5 +24,10 @@ namespace Ledinpro.Models
         [Display(Name = "菜单链接")]
         [Required(ErrorMessage = "请输入链接!")]
         public string Link { get; set; }
+
+        /// <summary>
+        /// 排序编号
+        /// </summary>
+        public int Sortnumber { get; set; }
     }
 }

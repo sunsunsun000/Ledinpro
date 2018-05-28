@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ledinpro</title>
+
+        <!-- 开发环境 -->
+        <environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+
+        <!-- 生产环境 -->
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.css"
+                  asp-fallback-test-class="sr-only"
+                  asp-fallback-test-property="position"
+                  asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site/site.min.css" asp-append-version="true" />
+        </environment>
+    </head>
+
+    <body>
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-default navbar-fixed-top homeNav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- 菜单项 -->
+                <div class="collapse navbar-collapse">
+                    <!-- 靠右菜单 -->
+                    <div class="nav navbar-nav navbar-right">
+
+                    </div>
+                </div>
+
+                <a class="navbar-brand" href="/home">
+                    <img class="brand" src="~/images/logo_black_small.svg" />
+                </a>
+            </div>
+        </nav>
+
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+</html>

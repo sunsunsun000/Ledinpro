@@ -35,10 +35,10 @@ namespace Ledinpro
             // 使用内存数据库
             // services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
-            // services.AddDbContext<LedinproContext>(options => 
-            // options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
+            services.AddDbContext<LedinproContext>(options => 
+            options.UseSqlServer(Configuration.GetConnectionString("LedinproConnection")));
             // 使用Sqlite
-            services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
+            // services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
 
             // 验证服务
             services.AddIdentity<ApplicationUser, ApplicationRole>()
