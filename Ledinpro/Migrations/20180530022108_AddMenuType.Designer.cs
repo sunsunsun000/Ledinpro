@@ -12,14 +12,15 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    [Migration("20180528031225_AddMenuContext")]
-    partial class AddMenuContext
+    [Migration("20180530022108_AddMenuType")]
+    partial class AddMenuType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Ledinpro.Models.Carousel", b =>
                 {
@@ -130,6 +131,10 @@ namespace Ledinpro.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasMaxLength(16);
+
                     b.Property<DateTime?>("CreateDateTime");
 
                     b.Property<string>("CreateUserName")
@@ -141,12 +146,14 @@ namespace Ledinpro.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("Link")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(256);
 
                     b.Property<int>("Sortnumber");
 
                     b.Property<string>("Title")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(16);
 
                     b.HasKey("Id");
 

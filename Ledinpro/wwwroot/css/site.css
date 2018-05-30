@@ -1,4 +1,5 @@
 ﻿body {
+    width: 100%;
     padding: 0px;
     margin: 0px;
 }
@@ -87,8 +88,12 @@ a:hover p {
     background-color: #000000;
 }
 
-.indexPicturePadding {
-    padding: 60px 10px 60px 10px;
+.indexLeftPicturePadding {
+    padding: 60px 10px 60px 0px;
+}
+
+.indexRightPicturePadding {
+    padding: 60px 0px 60px 10px;
 }
 
 .homePictureSize {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Ledinpro.Migrations
 {
-    public partial class AddMenuContext : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -79,7 +79,6 @@ namespace Ledinpro.Migrations
                     LastEditDateTime = table.Column<DateTime>(nullable: true),
                     LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     Link = table.Column<string>(nullable: false),
-                    Sortnumber = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

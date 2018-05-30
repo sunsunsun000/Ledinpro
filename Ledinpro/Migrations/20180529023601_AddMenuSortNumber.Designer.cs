@@ -12,9 +12,10 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    partial class LedinproContextModelSnapshot : ModelSnapshot
+    [Migration("20180529023601_AddMenuSortNumber")]
+    partial class AddMenuSortNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,10 +131,6 @@ namespace Ledinpro.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(16);
-
                     b.Property<DateTime?>("CreateDateTime");
 
                     b.Property<string>("CreateUserName")
@@ -145,14 +142,12 @@ namespace Ledinpro.Migrations
                         .HasMaxLength(255);
 
                     b.Property<string>("Link")
-                        .IsRequired()
-                        .HasMaxLength(256);
+                        .IsRequired();
 
                     b.Property<int>("Sortnumber");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(16);
+                        .IsRequired();
 
                     b.HasKey("Id");
 

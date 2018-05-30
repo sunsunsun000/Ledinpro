@@ -14,6 +14,7 @@ namespace Ledinpro.Controllers
     {
         public HomeController(LedinproContext context) : base(context)
         {
+
         }
 
         /// <summary>
@@ -40,6 +41,7 @@ namespace Ledinpro.Controllers
         /// <returns></returns>
         public IActionResult PlantIndex()
         {
+            Console.WriteLine(ViewData["Menus"]);
             return View();
         }
 

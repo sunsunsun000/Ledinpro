@@ -12,14 +12,15 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    [Migration("20180528032018_AddMenuSort")]
-    partial class AddMenuSort
+    [Migration("20180529023304_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Ledinpro.Models.Carousel", b =>
                 {
@@ -142,8 +143,6 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("Link")
                         .IsRequired();
-
-                    b.Property<int>("Sortnumber");
 
                     b.Property<string>("Title")
                         .IsRequired();
