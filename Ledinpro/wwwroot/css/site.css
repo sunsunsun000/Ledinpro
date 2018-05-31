@@ -1,10 +1,21 @@
 ﻿body {
+    width: 100%;
     padding: 0px;
     margin: 0px;
 }
 
 a {
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #F37044;
+}
+
+/* 鼠标停到a上时，p元素的文本颜色 */
+a:hover p {
+    color: #F37044;
 }
 
 /* logo大小 */
@@ -58,12 +69,11 @@ a {
 .orangeHr {
     background-color: #f37044;
     height: 2px;
-    margin-top: 89px;
-    margin-bottom: 0px;
+    margin: 0px;
 }
 
 .middleMargin {
-    padding-top: 50px;
+    margin-top: 93px;
 }
 
 .middleMargin p,h3{
@@ -78,7 +88,24 @@ a {
     background-color: #000000;
 }
 
+.indexLeftPicturePadding {
+    padding: 60px 10px 60px 0px;
+}
 
+.indexRightPicturePadding {
+    padding: 60px 0px 60px 10px;
+}
+
+.homePictureSize {
+    width: 450px;
+    height: 300px;
+}
+
+.disInlineBlockWithSizeLog {
+    display: inline-block;
+    height: 70px;
+    width: 131px;
+}
 
 
 

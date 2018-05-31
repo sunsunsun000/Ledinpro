@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Ledinpro.Models;
 using Microsoft.AspNetCore.Authorization;
+using Ledinpro.Data;
 
 namespace Ledinpro.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(LedinproContext context) : base(context)
+        {
+
+        }
+
         /// <summary>
         /// 网站首页
         /// </summary>
@@ -35,6 +41,7 @@ namespace Ledinpro.Controllers
         /// <returns></returns>
         public IActionResult PlantIndex()
         {
+            Console.WriteLine(ViewData["Menus"]);
             return View();
         }
 

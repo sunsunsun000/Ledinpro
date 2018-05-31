@@ -6,14 +6,16 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>LeDinPro-lead,innovation,professional</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <!--导航栏-->
-    <nav class="navbar navbar-inverse navbar-fixed-top homeNav hidden-sm hidden-xs visible-md visible-lg">
+    <!--大屏幕-->
+    <nav class="navbar navbar-inverse navbar-fixed-top homeNav hidden-xs hidden-sm visible-md visible-lg">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar-collapse">
@@ -33,44 +35,81 @@
                 </ul>
             </div>
         </div>
+        <!--橘黄色分割线-->
+        <hr class="hidden-xs hidden-sm visible-md visible-lg orangeHr" />
     </nav>
 
-    <!--橘黄色分割线-->
-    <hr class="orangeHr" />
+    <!--小屏幕-->
+    <nav class="navbar-inverse navbar-fixed-top homeNav visible-xs visible-sm hidden-md hidden-lg">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/home">
+                    <img class="brand" src="~/images/logo_black_small.svg" />
+                </a>
+            </div>
+        </div>
+    </nav>
 
     <!--中间部分-->
-    <div class="middleMargin homeBackgoundColor">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-                    <a class="thumbnail" href="#">
-                        <div class="caption">
-                            <h3>Lighting</h3>
-                            <p>Commercial / Industrial</p>
-                            <p>Waterproof LED Linear Light</p>
-                        </div>
-                        <img src="~/images/商照.jpg" />
-                    </a>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-md-6">
-                    <a class="thumbnail" href="#">
-                        <div class="caption">
-                            <h3>Horticulture</h3>
-                            <p>Greenhouse / Vertical Farm</p>
-                            <p>LED Grow Light</p>
-                        </div>
-                        <img src="~/images/园艺.jpg" />
-                    </a>
-                </div>
+    <!--大屏幕-->
+    <div class="hidden-xs hidden-sm visible-md visible-lg middleMargin homeBackgoundColor container-fluid" style="background-color: #211F1B">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-6 indexLeftPicturePadding">
+                <a style="float: right;margin: 0 0 0 auto;display: block;text-align: center;color: black;background-color: white" href="#">
+                    <div class="caption">
+                        <h3>Lighting</h3>
+                        <p>Commercial / Industrial</p>
+                        <p>Waterproof LED Linear Light</p>
+                    </div>
+                    <img src="~/images/商照.jpg" class="img-responsive homePictureSize" />
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-md-6 indexRightPicturePadding">
+                <a style="float: left;margin: 0 0 0 auto;display: block;text-align: center;color: black;background-color: white" href="#">
+                    <div class="caption">
+                        <h3>Horticulture</h3>
+                        <p>Greenhouse / Vertical Farm</p>
+                        <p>LED Grow Light</p>
+                    </div>
+                    <img src="~/images/园艺.jpg" class="img-responsive homePictureSize" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--小屏幕-->
+    <div class="visible-xs visible-sm hidden-md hidden-lg middleMargin container-fluid" style="background-color: #ffffff;padding-top: 30px;padding-bottom: 30px">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-md-12">
+                <a style="margin: 0 0 0 auto;display: block;text-align: center;color: black;background-color: white" href="#">
+                    <div class="caption">
+                        <h3>Lighting</h3>
+                        <p>Commercial / Industrial</p>
+                        <p>Waterproof LED Linear Light</p>
+                    </div>
+                    <img src="~/images/商照.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-md-12">
+                <a style="float: left;margin: 0 0 0 auto;display: block;text-align: center;color: black;background-color: white" href="#">
+                    <div class="caption">
+                        <h3>Horticulture</h3>
+                        <p>Greenhouse / Vertical Farm</p>
+                        <p>LED Grow Light</p>
+                    </div>
+                    <img src="~/images/园艺.jpg" class="img-responsive" />
+                </a>
             </div>
         </div>
     </div>
 
     <!--底部区域-->
     <footer id="contact" class="footUpBackgroundColor" style="background-color: #454240">
-        <br />
-        <div class="footDownBackgroundColor text-center" style="background-color: #454240">
-            <img src="~/images/logowhite.png" alt="" />
+        <div>
+            @Html.Partial("_EmailViewPartial")
+        </div>
+        <div class="footDownBackgroundColor text-center" style="background-color: #000000;padding-top: 20px">
+            <img src="~/images/logowhite.png" alt="" class="disInlineBlockWithSizeLog" />
             <p style="color:white;margin-bottom:0px">Zhengzhou Inledco Lighting Co.,LTD</p>
             <span id="cnzz_stat_icon_1259345350" style="float:left;display:none">
                 <a href="http://www.cnzz.com/stat/website.php?web_id=1259345350" target="_blank" title="站长统计">
