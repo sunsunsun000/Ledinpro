@@ -1,5 +1,88 @@
+@using Ledinpro.Models
+
 @{
     // 显式指定
     Layout = "_LedinproLayout";
+    string activeFlag = "item";
+    List<Carousel> CarouselList = ViewBag.Carousels;
+    List<News> NewsList = ViewBag.News;
 }
 
+<!-- 四个菜单图片 -->
+<!-- <div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <img src="~/upload/2017415151701.jpg" class="img-responsive" />
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <img src="~/upload/2017415151701.jpg" class="img-responsive" />
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <img src="~/upload/2017415151701.jpg" class="img-responsive" />
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+        <img src="~/upload/2017415151701.jpg" class="img-responsive" />
+    </div> -->
+
+    <!-- 轮播图 -->
+    <div id="plant-index-carousel" class="carousel slider" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            @foreach (var carouselItem in CarouselList)
+            {
+                if (CarouselList.IndexOf(carouselItem) == 0)
+                {
+                    activeFlag = "item active";
+                }
+                else
+                {
+                    activeFlag = "item";
+                }
+                <div class="@(activeFlag)">
+                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                        <a href="#">
+                            <img src=@(carouselItem.MobilePicturePath) class="img-responsive" />
+                        </a>
+                    </div>
+
+                    <div class="hidden-xs hidden-sm visible-md visible-lg">
+                        <a href="#">
+                            <img src=@(carouselItem.PicturePath) class="img-responsive" />
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- 新闻 -->
+    <div id="plant-index-carousel-news" class="carousel slider" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            @foreach (var newsItem in NewsList)
+            {
+                if (NewsList.IndexOf(newsItem) == 0)
+                {
+                    activeFlag = "item active";
+                }
+                else
+                {
+                    activeFlag = "item";
+                }
+                <div class="@(activeFlag)">
+                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                        <a href="#">
+                            <img src=@(newsItem.MobilePicture) class="img-responsive" />
+                        </a>
+                    </div>
+
+                    <div class="hidden-xs hidden-sm visible-md visible-lg">
+                        <a href="#">
+                            <img src=@(newsItem.Picture) class="img-responsive" />
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

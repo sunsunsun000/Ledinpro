@@ -15,7 +15,7 @@ namespace Ledinpro.Models
         /// 产品编码
         /// </summary>
         [Display(Name = "产品编码")]
-        [Required, StringLength(64), MaxLength(64)]
+        [Required, StringLength(32), MaxLength(32)]
         public string Code { get; set; }
 
         /// <summary>
@@ -28,9 +28,9 @@ namespace Ledinpro.Models
         /// <summary>
         /// 产品类型
         /// </summary>
-        [Display(Name = "类型")]
+        [Display(Name = "产品类型")]
         [Required]
-        public string Type { get; set; }
+        public ProductType Type { get; set; }
 
         /// <summary>
         /// 产品描述
@@ -48,79 +48,84 @@ namespace Ledinpro.Models
         /// 功率
         /// </summary>
         [Display(Name = "功率")]
+        [MaxLength(64),StringLength(64)]
         public string Power { get; set; }
 
         /// <summary>
         /// 流明
         /// </summary>
         [Display(Name = "流明")]
+        [MaxLength(64),StringLength(64)]
         public string Lumen { get; set; }
 
         /// <summary>
         /// 光角
         /// </summary>
         [Display(Name = "光角")]
+        [MaxLength(64),StringLength(64)]
         public string LightingAngle { get; set; }
 
         /// <summary>
         /// 光效
         /// </summary>
         [Display(Name = "光效")]
+        [MaxLength(64),StringLength(64)]
         public string Efficient { get; set; }
 
         /// <summary>
         /// 调光
         /// </summary>
         [Display(Name = "调光")]
+        [MaxLength(64),StringLength(64)]
         public string Dimming { get; set; }
 
         /// <summary>
         /// 输入电压
         /// </summary>
         [Display(Name = "输入电压")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string InputVoltage { get; set; }
 
         /// <summary>
         /// 输出电压
         /// </summary>
         [Display(Name = "输出电压")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string OutputVoltage { get; set; }
 
         /// <summary>
         /// 输入功率
         /// </summary>
         [Display(Name = "输入功率")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string InputPower { get; set; }
 
         /// <summary>
         /// 输出功率
         /// </summary>
         [Display(Name = "输出功率")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string OutputPower { get; set; }
  
         /// <summary>
         /// 重量
         /// </summary>
         [Display(Name = "重量")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string Weight { get; set; }
 
         /// <summary>
         /// 发热
         /// </summary>
         [Display(Name = "发热")]
-        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！")]
+        [MaxLength(64, ErrorMessage = "输入过长，最长64字符！"),StringLength(64)]
         public string Heat { get; set; }
 
         /// <summary>
         /// PPF
         /// </summary>
         [Display(Name = "PPF")]
-        [MaxLength(255, ErrorMessage = "输入过长，最长255字符！")]
+        [MaxLength(255, ErrorMessage = "输入过长，最长255字符！"),StringLength(64)]
         public string Ppf { get; set; }
 
         /// <summary>

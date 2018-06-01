@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Ledinpro.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialLedinproDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,16 +14,15 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
+                    Description = table.Column<string>(maxLength: 1024, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     PicturePath = table.Column<string>(nullable: false),
                     RelativeProductId = table.Column<Guid>(nullable: false),
-                    SortNumber = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true)
+                    SortNumber = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(maxLength: 32, nullable: true),
+                    Type = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,11 +37,9 @@ namespace Ledinpro.Migrations
                     Address = table.Column<string>(maxLength: 1000, nullable: false),
                     BackgroundImage = table.Column<string>(nullable: true),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Description = table.Column<string>(nullable: false),
                     Email = table.Column<string>(maxLength: 64, nullable: false),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     Name = table.Column<string>(maxLength: 500, nullable: false),
                     Phone = table.Column<string>(maxLength: 64, nullable: false)
                 },
@@ -58,9 +55,7 @@ namespace Ledinpro.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Active = table.Column<bool>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     LogoPath = table.Column<string>(nullable: true),
                     LogoType = table.Column<string>(nullable: true)
                 },
@@ -74,12 +69,12 @@ namespace Ledinpro.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
+                    Category = table.Column<string>(maxLength: 16, nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    Link = table.Column<string>(nullable: false),
-                    Title = table.Column<string>(nullable: false)
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
+                    Link = table.Column<string>(maxLength: 256, nullable: false),
+                    Sortnumber = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(maxLength: 16, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -91,15 +86,20 @@ namespace Ledinpro.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Author = table.Column<string>(maxLength: 64, nullable: false),
+                    Author = table.Column<string>(maxLength: 16, nullable: false),
+                    BackgroundPicture = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
+                    MobileBackgroundPicture = table.Column<string>(nullable: true),
+                    MobilePicture = table.Column<string>(nullable: true),
+                    Picture = table.Column<string>(nullable: true),
+                    ProductType = table.Column<int>(nullable: true),
                     PublishOrNot = table.Column<bool>(nullable: false),
                     PublishTime = table.Column<DateTime>(nullable: true),
+                    Sortnumber = table.Column<int>(nullable: true),
                     SubTitle = table.Column<string>(maxLength: 255, nullable: true),
+                    Thumbnail = table.Column<string>(nullable: true),
                     Title = table.Column<string>(maxLength: 255, nullable: false)
                 },
                 constraints: table =>
@@ -112,29 +112,27 @@ namespace Ledinpro.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Code = table.Column<string>(maxLength: 64, nullable: false),
+                    Code = table.Column<string>(maxLength: 32, nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Dimming = table.Column<string>(nullable: true),
-                    Efficient = table.Column<string>(nullable: true),
+                    Dimming = table.Column<string>(maxLength: 64, nullable: true),
+                    Efficient = table.Column<string>(maxLength: 64, nullable: true),
                     Heat = table.Column<string>(maxLength: 64, nullable: true),
                     InputPower = table.Column<string>(maxLength: 64, nullable: true),
                     InputVoltage = table.Column<string>(maxLength: 64, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LightingAngle = table.Column<string>(nullable: true),
-                    Lumen = table.Column<string>(nullable: true),
+                    LightingAngle = table.Column<string>(maxLength: 64, nullable: true),
+                    Lumen = table.Column<string>(maxLength: 64, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 128, nullable: false),
                     OutputPower = table.Column<string>(maxLength: 64, nullable: true),
                     OutputVoltage = table.Column<string>(maxLength: 64, nullable: true),
                     PicturePath = table.Column<string>(nullable: true),
-                    Power = table.Column<string>(nullable: true),
-                    Ppf = table.Column<string>(maxLength: 255, nullable: true),
+                    Power = table.Column<string>(maxLength: 64, nullable: true),
+                    Ppf = table.Column<string>(maxLength: 64, nullable: true),
                     Specification = table.Column<string>(nullable: true),
                     Spectrum = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: false),
+                    Type = table.Column<int>(nullable: false),
                     Weight = table.Column<string>(maxLength: 64, nullable: true)
                 },
                 constraints: table =>
@@ -148,14 +146,13 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Description = table.Column<string>(maxLength: 500, nullable: false),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     PicturePath = table.Column<string>(nullable: true),
-                    SceneType = table.Column<string>(nullable: true)
+                    ProductApplicationScene = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -168,11 +165,9 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Email = table.Column<string>(maxLength: 64, nullable: false),
                     IsShow = table.Column<bool>(nullable: false),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     NickName = table.Column<string>(maxLength: 64, nullable: true),
                     Phone = table.Column<string>(maxLength: 64, nullable: false),
@@ -190,9 +185,7 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     PicturePath = table.Column<string>(nullable: true),
@@ -216,9 +209,7 @@ namespace Ledinpro.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     Comment = table.Column<string>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     ProductId = table.Column<Guid>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
@@ -239,9 +230,7 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     PicturePath = table.Column<string>(nullable: true),
                     ProductId = table.Column<Guid>(nullable: false)
@@ -263,11 +252,9 @@ namespace Ledinpro.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     FilePath = table.Column<string>(nullable: true),
                     FileTpye = table.Column<int>(nullable: false),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     ProductId = table.Column<Guid>(nullable: false),
                     Version = table.Column<string>(nullable: false)
                 },
@@ -290,12 +277,10 @@ namespace Ledinpro.Migrations
                     Code = table.Column<string>(maxLength: 64, nullable: false),
                     ColorAngle = table.Column<string>(maxLength: 64, nullable: true),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
-                    CreateUserName = table.Column<string>(maxLength: 255, nullable: true),
+                    CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Dimming = table.Column<string>(maxLength: 64, nullable: true),
                     Efficient = table.Column<string>(maxLength: 64, nullable: true),
                     InputPower = table.Column<string>(maxLength: 64, nullable: true),
-                    LastEditDateTime = table.Column<DateTime>(nullable: true),
-                    LastEditUserName = table.Column<string>(maxLength: 255, nullable: true),
                     Lumen = table.Column<string>(maxLength: 64, nullable: true),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     OutputPower = table.Column<string>(maxLength: 64, nullable: true),

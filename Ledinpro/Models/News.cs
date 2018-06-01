@@ -34,9 +34,16 @@ namespace Ledinpro.Models
         /// 新闻作者
         /// </summary>
         [Required(ErrorMessage = "请输入作者名称！")]
-        [MaxLength(64)]
+        [MaxLength(16)]
+        [StringLength(16)]
         [Display(Name = "作者名称")]
         public string Author { get; set; }
+
+        /// <summary>
+        /// 产品类型
+        /// </summary>
+        [Display(Name = "发布时间")]
+        public ProductType? ProductType { get; set; }
 
         /// <summary>
         /// 发布时间
@@ -49,5 +56,41 @@ namespace Ledinpro.Models
         /// </summary>
         [Display(Name = "是否发布")]
         public bool PublishOrNot { get; set; }
+
+        /// <summary>
+        /// 排序编号
+        /// </summary>
+        [Display(Name = "排序编号")]
+        public int? Sortnumber { get; set; }
+
+        /// <summary>
+        /// 新闻图片
+        /// </summary>
+        [Display(Name = "新闻图片")]
+        public string Picture { get; set; }
+
+        /// <summary>
+        /// 手机版新闻图片
+        /// </summary>
+        [Display(Name = "手机版新闻图片")]
+        public string MobilePicture { get; set; }
+
+        /// <summary>
+        /// 新闻背景图片
+        /// </summary>
+        [Display(Name = "新闻背景图片")]
+        public string BackgroundPicture { get; set; }
+
+        /// <summary>
+        /// 手机新闻背景图片
+        /// </summary>
+        [Display(Name = "手机新闻背景图片")]
+        public string MobileBackgroundPicture { get; set; }
+
+        /// <summary>
+        /// 小图片
+        /// </summary>
+        [Display(Name = "小图片")]
+        public string Thumbnail { get; set; }
     }
 }

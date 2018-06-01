@@ -27,7 +27,7 @@ namespace Ledinpro.Data
         public DbSet<ProductComment> ProductComments { get; set; }
         public DbSet<ProductFeature> ProductFeatures { get; set; }
         public DbSet<ProductFile> ProductFiles { get; set; }
-        public DbSet<ProductScene> ProductScene { get; set; }
+        public DbSet<ProductScene> ProductScenes { get; set; }
         public DbSet<SaleContactInfo> SaleContactInfos { get; set; }
         public DbSet<SubProduct> SubProducts { get; set; }
 

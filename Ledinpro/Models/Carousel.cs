@@ -13,6 +13,7 @@ namespace Ledinpro.Models
         /// </summary>
         [Required(ErrorMessage = "请输入名称！")]
         [MaxLength(64)]
+        [StringLength(64)]
         [Display(Name = "名称")]
         public string Name { get; set; }
 
@@ -20,12 +21,16 @@ namespace Ledinpro.Models
         /// 标题
         /// </summary>
         [Display(Name = "标题")]
+        [StringLength(32)]
+        [MaxLength(32)]
         public string Title { get; set; }
 
         /// <summary>
         /// 描述
         /// </summary>
         [Display(Name = "描述")]
+        [MaxLength(1024)]
+        [StringLength(1024)]
         public string Description { get; set; }
 
         /// <summary>
@@ -45,7 +50,12 @@ namespace Ledinpro.Models
         /// 排序编号
         /// </summary>
         [Display(Name = "排序编号")]
-        public string SortNumber { get; set; }
+        public int SortNumber { get; set; }
+
+        /// <summary>
+        /// 类别
+        /// </summary>
+        public ProductType? Type { get; set; }
 
         /// <summary>
         /// 关联产品

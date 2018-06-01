@@ -20,24 +20,14 @@ namespace Ledinpro.Models
         /// <summary>
         /// 建立人
         /// </summary>
-        [MaxLength(255)]
+        [MaxLength(16)]
+        [StringLength(16)]
         public string CreateUserName { get; set; }
 
         /// <summary>
         /// 创建时间
         /// </summary>
         public DateTime? CreateDateTime { get; set; }
-
-        /// <summary>
-        /// 最后修改人
-        /// </summary>
-        [MaxLength(255)]
-        public string LastEditUserName { get; set; }
-
-        /// <summary>
-        /// 最后修改时间
-        /// </summary>
-        public DateTime? LastEditDateTime { get; set; }
     }
 
     /// <summary>
@@ -45,6 +35,5 @@ namespace Ledinpro.Models
     /// </summary>
     public abstract class BaseEntity : BaseEntity<Guid>
     {
-
     }
 }

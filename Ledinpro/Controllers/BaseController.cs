@@ -9,12 +9,11 @@ namespace Ledinpro.Controllers
     public class BaseController : Controller
     {
         // 菜单数据
-        private List<Menu> menus;
+        public List<Menu> menus;
         protected LedinproContext _ledinproContext;
         public BaseController(LedinproContext context)
         {
             _ledinproContext = context;
-            GetMenus();
         }
 
         /// <summary>
@@ -24,16 +23,14 @@ namespace Ledinpro.Controllers
         private void GetMenus()
         {
             menus = (from menu in _ledinproContext.Menus
-                    select menu).ToList();
+                     select menu).ToList();
             if (menus.Count == 0)
             {
                 // 设置默认菜单到数据库
                 InitialMenus();
                 menus = (from menu in _ledinproContext.Menus
-                    select menu).ToList();
+                         select menu).ToList();
             }
-            
-            ViewData["Menus"] = menus;
         }
 
         /// <summary>

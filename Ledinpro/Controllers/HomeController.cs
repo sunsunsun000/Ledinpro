@@ -41,7 +41,28 @@ namespace Ledinpro.Controllers
         /// <returns></returns>
         public IActionResult PlantIndex()
         {
-            Console.WriteLine(ViewData["Menus"]);
+            // 1.获取轮播图数据
+            var carousels = (from c in _ledinproContext.Carousels
+                             where c.Type == ProductType.HORTICULTURE
+                             orderby c.SortNumber ascending
+                             select c).ToList<Carousel>();
+
+            ViewBag.Carousels = carousels;
+
+            // 2.获取新闻数据
+            var news = (from n in _ledinproContext.News
+                        where n.PublishOrNot == true && n.ProductType == ProductType.HORTICULTURE
+                        orderby n.Sortnumber
+                        select n).ToList<News>();
+
+            ViewBag.News = news;
+
+            // 3.获取植物灯应用场景
+            var scenes = (from s in _ledinproContext.ProductScenes
+                         where s.Type == ProductType.HORTICULTURE
+                         select s).ToList<ProductScene>();
+            ViewBag.Scenes = scenes;
+            
             return View();
         }
 

@@ -32,6 +32,12 @@ namespace Ledinpro.Models
         public string PicturePath { get; set; }
 
         /// <summary>
+        /// 场景背景
+        /// </summary>
+        [Display(Name = "场景背景")]
+        public string ProductApplicationScene { get; set; }
+
+        /// <summary>
         /// 手机版场景图片
         /// </summary>
         [Display(Name = "手机版场景图片")]
@@ -40,7 +46,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 场景类型
         /// </summary>
-        public string SceneType { get; set; }
+        public ProductType? Type { get; set; }
 
         /// <summary>
         /// 场景包含的产品
