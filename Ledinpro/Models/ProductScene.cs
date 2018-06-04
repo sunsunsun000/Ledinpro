@@ -20,8 +20,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 场景描述
         /// </summary>
-        [Required(ErrorMessage = "请输入场景描述！")]
-        [MaxLength(500)]
+        [MaxLength(1024)]
         [Display(Name = "描述")]
         public string Description { get; set; }
 

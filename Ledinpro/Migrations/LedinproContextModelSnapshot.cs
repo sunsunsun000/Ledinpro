@@ -43,12 +43,12 @@ namespace Ledinpro.Migrations
                     b.Property<string>("PicturePath")
                         .IsRequired();
 
-                    b.Property<int>("RelativeProductId");
+                    b.Property<int?>("RelativeProductId");
 
                     b.Property<int>("SortNumber");
 
                     b.Property<string>("Title")
-                        .HasMaxLength(32);
+                        .HasMaxLength(1024);
 
                     b.Property<int?>("Type");
 
@@ -172,7 +172,7 @@ namespace Ledinpro.Migrations
 
                     b.Property<int?>("ProductType");
 
-                    b.Property<bool>("PublishOrNot");
+                    b.Property<bool?>("PublishOrNot");
 
                     b.Property<DateTime?>("PublishTime");
 
@@ -393,8 +393,7 @@ namespace Ledinpro.Migrations
                         .HasMaxLength(16);
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500);
+                        .HasMaxLength(1024);
 
                     b.Property<string>("MobilePicturePath");
 

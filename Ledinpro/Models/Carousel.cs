@@ -21,8 +21,8 @@ namespace Ledinpro.Models
         /// 标题
         /// </summary>
         [Display(Name = "标题")]
-        [StringLength(32)]
-        [MaxLength(32)]
+        [StringLength(1024)]
+        [MaxLength(1024)]
         public string Title { get; set; }
 
         /// <summary>
@@ -61,6 +61,6 @@ namespace Ledinpro.Models
         /// 关联产品
         /// </summary>
         [Display(Name = "关联产品")]
-        public int RelativeProductId { get; set; }
+        public int? RelativeProductId { get; set; }
     }
 }

@@ -55,7 +55,7 @@ namespace Ledinpro.Models
         /// 是否发布
         /// </summary>
         [Display(Name = "是否发布")]
-        public bool PublishOrNot { get; set; }
+        public bool? PublishOrNot { get; set; }
 
         /// <summary>
         /// 排序编号

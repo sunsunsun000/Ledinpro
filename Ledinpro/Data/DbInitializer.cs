@@ -228,15 +228,13 @@ namespace Ledinpro.Data
 
             context.ProductScenes.AddRange(new List<ProductScene>() {
                 new ProductScene() {
-                    Id = 6,
                     Name = "Office",
-                    Description = "",
+                    Description = "场景描述",
                     ProductApplicationScene = "/upload/20174121521280.png",
                     PicturePath = "/upload/201741215212801.png",
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 7,
                     Name = "Supermarket",
                     Description = "Supermarket",
                     ProductApplicationScene = "/upload/20174201012310.png",
@@ -244,7 +242,6 @@ namespace Ledinpro.Data
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 8,
                     Name = "Industry",
                     Description = "Industry",
                     ProductApplicationScene = "/upload/20174201043100.png",
@@ -252,7 +249,6 @@ namespace Ledinpro.Data
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 9,
                     Name = "Parking",
                     Description = "Parking",
                     ProductApplicationScene = "/upload/20174201024310.png",
@@ -260,23 +256,20 @@ namespace Ledinpro.Data
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 10,
                     Name = "Aquarium",
-                    Description = "",
+                    Description = "场景描述",
                     ProductApplicationScene = "/upload/20174211042220.png",
                     PicturePath = "",
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 11,
                     Name = "Farm",
-                    Description = "",
+                    Description = "场景描述",
                     ProductApplicationScene = "/upload/2017421105010.png",
                     PicturePath = "",
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 12,
                     Name = "驱动",
                     Description = "驱动",
                     ProductApplicationScene = "",
@@ -284,7 +277,6 @@ namespace Ledinpro.Data
                     Type = ProductType.LIGHTING
                 },
                 new ProductScene() {
-                    Id = 15,
                     Name = "Greenhouse",
                     Description = "123",
                     ProductApplicationScene = "/upload/20181121646440.jpg",
@@ -292,7 +284,6 @@ namespace Ledinpro.Data
                     Type = ProductType.HORTICULTURE
                 },
                 new ProductScene() {
-                    Id = 16,
                     Name = "Indoor cultivate",
                     Description = "123",
                     ProductApplicationScene = "/upload/2018120947530.jpg",
@@ -300,7 +291,6 @@ namespace Ledinpro.Data
                     Type = ProductType.HORTICULTURE
                 },
                 new ProductScene() {
-                    Id = 17,
                     Name = "Vertical Farm",
                     Description = "123",
                     ProductApplicationScene = "/upload/20181121647490.jpg",
