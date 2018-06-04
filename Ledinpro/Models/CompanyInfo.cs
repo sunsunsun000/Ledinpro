@@ -6,12 +6,12 @@ namespace Ledinpro.Models
     public class CompanyInfo : BaseEntity
     {
         [Required(ErrorMessage = "请输入公司名称！")]
-        [MaxLength(500)]
+        [MaxLength(512)]
         [Display(Name = "公司名称")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "请输入公司地址！")]
-        [MaxLength(1000)]
+        [MaxLength(1024)]
         [Display(Name = "公司地址")]
         public string Address { get; set; }
 
@@ -31,5 +31,8 @@ namespace Ledinpro.Models
 
         [Display(Name = "背景图片")]
         public string BackgroundImage { get; set; }
+
+        [Display(Name = "手机背景图片")]
+        public string MobileBackgroundImage { get; set; }
     }
 }

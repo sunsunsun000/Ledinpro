@@ -63,7 +63,7 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(1000);
+                        .HasMaxLength(1024);
 
                     b.Property<string>("BackgroundImage");
 
@@ -79,9 +79,11 @@ namespace Ledinpro.Migrations
                         .IsRequired()
                         .HasMaxLength(64);
 
+                    b.Property<string>("MobileBackgroundImage");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(500);
+                        .HasMaxLength(512);
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -221,6 +223,8 @@ namespace Ledinpro.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("BackgroundPicturePath");
+
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(32);
@@ -272,6 +276,19 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("Ppf")
                         .HasMaxLength(64);
+
+                    b.Property<string>("ProductDatasheet");
+
+                    b.Property<string>("ProductGuide");
+
+                    b.Property<string>("ProductIES");
+
+                    b.Property<string>("ProductInstallationGuide");
+
+                    b.Property<string>("SceneName")
+                        .HasMaxLength(64);
+
+                    b.Property<string>("ScenePicturePath");
 
                     b.Property<string>("Specification");
 

@@ -80,6 +80,19 @@ namespace Ledinpro.Models
         public string Dimming { get; set; }
 
         /// <summary>
+        /// 场景名称
+        /// </summary>
+        [Display(Name = "场景名称")]
+        [MaxLength(64),StringLength(64)]
+        public string SceneName { get; set; }
+
+        /// <summary>
+        /// 场景图片
+        /// </summary>
+        [Display(Name = "场景图片")]
+        public string ScenePicturePath { get; set; }
+
+        /// <summary>
         /// 输入电压
         /// </summary>
         [Display(Name = "输入电压")]
@@ -141,10 +154,40 @@ namespace Ledinpro.Models
         public string PicturePath { get; set; }
 
         /// <summary>
+        /// 产品背景图片
+        /// </summary>
+        [Display(Name = "产品背景图片")]
+        public string BackgroundPicturePath { get; set; }
+
+        /// <summary>
         /// 手机版产品图片
         /// </summary>
         [Display(Name = "手机版产品图片")]
         public string MobilePicturePath { get; set; }
+
+        /// <summary>
+        /// 产品指导书
+        /// </summary>
+        [Display(Name = "产品指导书")]
+        public string ProductGuide { get; set; }
+
+        /// <summary>
+        /// 产品安装指导书
+        /// </summary>
+        [Display(Name = "产品安装指导书")]
+        public string ProductInstallationGuide { get; set; }
+
+        /// <summary>
+        /// 产品Datasheet
+        /// </summary>
+        [Display(Name = "产品Datasheet")]
+        public string ProductDatasheet{ get; set; }
+
+        /// <summary>
+        /// 产品IES文件
+        /// </summary>
+        [Display(Name = "产品IES文件")]
+        public string ProductIES{ get; set; }
 
         /// <summary>
         /// 关联场景

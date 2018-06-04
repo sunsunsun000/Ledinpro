@@ -62,6 +62,22 @@ namespace Ledinpro.Controllers
                          where s.Type == ProductType.HORTICULTURE
                          select s).ToList<ProductScene>();
             ViewBag.Scenes = scenes;
+
+            // 4.获取对应场景产品信息
+            var products = (from p in _ledinproContext.Products
+                           where p.Type == ProductType.HORTICULTURE
+                           select p).ToList<Product>();
+
+            ViewBag.Products = products;
+
+            // 5.获取公司信息
+            var companyInfo = (from c in _ledinproContext.CompanyInfos
+                              select c).ToArray<CompanyInfo>();
+            
+            if (companyInfo.Count() > 0)
+            {
+                ViewBag.CompanyInfo = companyInfo[0];
+            }
             
             return View();
         }

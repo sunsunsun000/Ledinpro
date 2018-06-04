@@ -1,0 +1,72 @@
+<!-- 产品部分视图 -->
+@using Ledinpro.Models
+@{
+    List<Product> ProductList = ViewBag.Products;
+}
+
+<div id="typeProduct">
+    <!-- 大屏幕部分 -->
+    <div class="hidden-xs hidden-sm visible-md visible-lg">
+        @{
+            int index = 0;
+            int firstProductSceneId = 0;
+            if (ProductList == null)
+            {
+                return;
+            }
+
+            foreach (var p in ProductList)
+            {
+                // 如果当前产品是第一个产品或者和前一个产品不是同一场景，则标记Id
+                if (index == 0)
+                {
+                    
+                }
+                else
+                {
+
+                }
+
+                <div class="row">
+                    @if (index++ %2 == 0)
+                    {
+                        // 图片靠左
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <img class="img-responsive" src=@p.PicturePath />
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                            <div>Product Data</div>
+                            <ul class="nav nav-tabs">
+                                <li role="presentation" class="active"><a href=@("#RINTRODUCTION" + index.ToString())></a>INTRODUCTION</li>
+                                <li role="presentation"><a href=@("#RSPECTRUM" + index.ToString())>SPECTRUM</a></li>
+                                <li role="presentation"><a href=@("#RSPECIFICATION" + index.ToString())>SPECIFICATION</a></li>
+                                <li role="presentation"><a href=@("#RDATA" + index.ToString())>DATA</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id=@("#RINTRODUCTION" + index.ToString())>
+                                    <pre>@p.Description</pre>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id=@("#RSPECTRUM" + index.ToString())>
+                                    <img src=@p.Spectrum />
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id=@("RSPECIFICATION" + index.ToString())>
+                                    <div>Power:</div>@p.Power
+                                    <div>Size:</div>@p.Specification
+                                    <div>Efficiency:</div>@p.Efficient
+                                    <div>PPF:</div>@p.Ppf
+                                    <div>Beam:</div>@p.LightingAngle
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id=@("RDATA" + index.ToString())>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <!-- 小屏幕部分 -->
+</div>
