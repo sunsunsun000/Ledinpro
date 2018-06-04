@@ -87,6 +87,12 @@ namespace Ledinpro.Models
         public string SceneName { get; set; }
 
         /// <summary>
+        /// 场景Id
+        /// </summary>
+        [Display(Name = "场景Id")]
+        public int ProductSceneId { get; set; }
+
+        /// <summary>
         /// 场景图片
         /// </summary>
         [Display(Name = "场景图片")]

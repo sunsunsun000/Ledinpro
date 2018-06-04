@@ -60,12 +60,14 @@ namespace Ledinpro.Controllers
             // 3.获取植物灯应用场景
             var scenes = (from s in _ledinproContext.ProductScenes
                          where s.Type == ProductType.HORTICULTURE
+                         orderby s.Id
                          select s).ToList<ProductScene>();
             ViewBag.Scenes = scenes;
 
             // 4.获取对应场景产品信息
             var products = (from p in _ledinproContext.Products
                            where p.Type == ProductType.HORTICULTURE
+                           orderby p.ProductSceneId
                            select p).ToList<Product>();
 
             ViewBag.Products = products;

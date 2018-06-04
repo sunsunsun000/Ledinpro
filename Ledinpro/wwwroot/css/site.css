@@ -6,9 +6,9 @@
 }
 
 footer {
-    padding-top: 20px;
+    /* padding-top: 20px; */
     background-color: #454240;
-    margin-top: 20px;    
+    /* margin-top: 20px;     */
 }
 
 a {
@@ -124,7 +124,42 @@ a:hover p {
     display: inline-block;
 }
 
+.preDes{
+    background-color:inherit;
+    color:inherit;
+    border:none;
+    font-size:inherit;
+    font-family:inherit;
+}
 
+.productParameterDiv {
+    margin-left: 20px;
+    width: 80px;
+    display: inline-block;
+}
+
+.imgThirtySize{
+    width: 30px;
+    height: 30px;
+}
+
+.productScenePadding{
+    padding: 10px;
+}
+
+.disInlineBlockWithoutSize {
+    display: inline-block;
+}
+
+.nonePaddingCol{
+    padding-left: 0;
+    padding-right: 0;
+    text-align:left;
+}
+
+.productSceneNavigation {
+
+}
 
 
 

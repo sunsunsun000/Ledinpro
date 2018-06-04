@@ -149,7 +149,7 @@ namespace Ledinpro.Repositories
     /// 主键类型为Guid的仓储基类
     /// </summary>
     /// <typeparam name="TEntity">实体类型</typeparam>
-    public abstract class LedinproRepositoryBase<TEntity, TContext> : LedinproRepositoryBase<TEntity, Guid, TContext>
+    public abstract class LedinproRepositoryBase<TEntity, TContext> : LedinproRepositoryBase<TEntity, int, TContext>
         where TEntity : BaseEntity
         where TContext : DbContext
     {

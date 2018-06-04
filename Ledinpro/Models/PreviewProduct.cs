@@ -31,7 +31,7 @@ namespace Ledinpro.Models
         /// 关联产品Id
         /// </summary>
         [Display(Name = "产品")]
-        public Guid ProductId{ get; set; }
+        public int ProductId{ get; set; }
 
         /// <summary>
         /// 关联产品

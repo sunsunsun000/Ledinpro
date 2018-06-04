@@ -59,7 +59,7 @@
     </div>
 
     <!-- 新闻 -->
-    <div id="plant-index-carousel-news" class="carousel slider" data-ride="carousel">
+    <div id="companyNews" class="carousel slider" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             @foreach (var newsItem in NewsList)
             {
@@ -97,7 +97,7 @@
                 <div class="hidden-xs hidden-sm visible-md visible-lg">
                     @foreach (var scene in SceneList)
                     {
-                        <a id=@scene.Id class="sceneDisInlineBlock" href="#">
+                        <a id=@scene.Id class="sceneDisInlineBlock productSceneNavigation" href="#">
                             <img src=@scene.PicturePath class="img-responsive" alt=@scene.Name />
                         </a>
                     }
@@ -126,7 +126,7 @@
     <!-- 公司介绍部分 -->
     @if (CompanyInfo != null)
     {
-        <div id="CompanyInfo">
+        <div id="companyIntroduce">
             <img class="img-responsive hidden-sm hidden-xs visible-md visible-lg" src=@(CompanyInfo.BackgroundImage) style="width:100%" />
             <img class="img-responsive visible-sm visible-xs hidden-md hidden-lg" src=@(CompanyInfo.MobileBackgroundImage) style="width:100%" />
         </div>

@@ -73,7 +73,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 主产品Id
         /// </summary>
-        public Guid ProductId { get; set; }
+        public int ProductId { get; set; }
 
         /// <summary>
         /// 主产品

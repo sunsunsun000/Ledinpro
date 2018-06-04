@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
@@ -12,14 +13,15 @@ namespace Ledinpro.Migrations
                 name: "Carousel",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Description = table.Column<string>(maxLength: 1024, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     PicturePath = table.Column<string>(nullable: false),
-                    RelativeProductId = table.Column<Guid>(nullable: false),
+                    RelativeProductId = table.Column<int>(nullable: false),
                     SortNumber = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 32, nullable: true),
                     Type = table.Column<int>(nullable: true)
@@ -33,7 +35,8 @@ namespace Ledinpro.Migrations
                 name: "CompanyInfo",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Address = table.Column<string>(maxLength: 1024, nullable: false),
                     BackgroundImage = table.Column<string>(nullable: true),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
@@ -53,7 +56,8 @@ namespace Ledinpro.Migrations
                 name: "Logo",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Active = table.Column<bool>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
@@ -69,7 +73,8 @@ namespace Ledinpro.Migrations
                 name: "Menu",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Category = table.Column<string>(maxLength: 16, nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
@@ -86,7 +91,8 @@ namespace Ledinpro.Migrations
                 name: "News",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Author = table.Column<string>(maxLength: 16, nullable: false),
                     BackgroundPicture = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: false),
@@ -112,7 +118,8 @@ namespace Ledinpro.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     BackgroundPicturePath = table.Column<string>(nullable: true),
                     Code = table.Column<string>(maxLength: 32, nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
@@ -136,6 +143,7 @@ namespace Ledinpro.Migrations
                     ProductGuide = table.Column<string>(nullable: true),
                     ProductIES = table.Column<string>(nullable: true),
                     ProductInstallationGuide = table.Column<string>(nullable: true),
+                    ProductSceneId = table.Column<int>(nullable: false),
                     SceneName = table.Column<string>(maxLength: 64, nullable: true),
                     ScenePicturePath = table.Column<string>(nullable: true),
                     Specification = table.Column<string>(nullable: true),
@@ -152,7 +160,8 @@ namespace Ledinpro.Migrations
                 name: "ProductScene",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Description = table.Column<string>(maxLength: 500, nullable: false),
@@ -171,7 +180,8 @@ namespace Ledinpro.Migrations
                 name: "SaleContactInfo",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Email = table.Column<string>(maxLength: 64, nullable: false),
@@ -191,13 +201,14 @@ namespace Ledinpro.Migrations
                 name: "PreviewProduct",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     MobilePicturePath = table.Column<string>(nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     PicturePath = table.Column<string>(nullable: true),
-                    ProductId = table.Column<Guid>(nullable: false)
+                    ProductId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -214,11 +225,12 @@ namespace Ledinpro.Migrations
                 name: "ProductComment",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Comment = table.Column<string>(nullable: false),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
-                    ProductId = table.Column<Guid>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -236,12 +248,13 @@ namespace Ledinpro.Migrations
                 name: "ProductFeature",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     Name = table.Column<string>(maxLength: 255, nullable: false),
                     PicturePath = table.Column<string>(nullable: true),
-                    ProductId = table.Column<Guid>(nullable: false)
+                    ProductId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -258,12 +271,13 @@ namespace Ledinpro.Migrations
                 name: "ProductFile",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
                     CreateUserName = table.Column<string>(maxLength: 16, nullable: true),
                     FilePath = table.Column<string>(nullable: true),
                     FileTpye = table.Column<int>(nullable: false),
-                    ProductId = table.Column<Guid>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
                     Version = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -281,7 +295,8 @@ namespace Ledinpro.Migrations
                 name: "SubProduct",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Code = table.Column<string>(maxLength: 64, nullable: false),
                     ColorAngle = table.Column<string>(maxLength: 64, nullable: true),
                     CreateDateTime = table.Column<DateTime>(nullable: true),
@@ -293,7 +308,7 @@ namespace Ledinpro.Migrations
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     OutputPower = table.Column<string>(maxLength: 64, nullable: true),
                     PicturePath = table.Column<string>(nullable: true),
-                    ProductId = table.Column<Guid>(nullable: false)
+                    ProductId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -310,8 +325,8 @@ namespace Ledinpro.Migrations
                 name: "ProductSceneProduct",
                 columns: table => new
                 {
-                    ProductSceneId = table.Column<Guid>(nullable: false),
-                    ProductId = table.Column<Guid>(nullable: false)
+                    ProductSceneId = table.Column<int>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

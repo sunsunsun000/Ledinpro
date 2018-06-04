@@ -10,9 +10,9 @@ namespace Ledinpro.Models
     /// </summary>
     public class ProductSceneProduct
     {
-        public Guid ProductSceneId { get; set; }
+        public int ProductSceneId { get; set; }
         public ProductScene ProductScene { get; set; }
-        public Guid ProductId { get; set; }
+        public int ProductId { get; set; }
         public Product Product { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 关联产品Id
         /// </summary>
-        public Guid ProductId { get; set; }
+        public int ProductId { get; set; }
 
         /// <summary>
         /// 关联产品

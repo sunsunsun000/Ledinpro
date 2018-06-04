@@ -61,6 +61,6 @@ namespace Ledinpro.Models
         /// 关联产品
         /// </summary>
         [Display(Name = "关联产品")]
-        public Guid RelativeProductId { get; set; }
+        public int RelativeProductId { get; set; }
     }
 }

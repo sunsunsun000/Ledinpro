@@ -89,7 +89,7 @@ namespace Ledinpro.Domain.IRepositories
     /// 默认Guid主键类型
     /// </summary>
     /// <typeparam name="TEntity">实体类型</typeparam>
-    public interface IRepository<TEntity> : IRepository<TEntity, Guid> 
+    public interface IRepository<TEntity> : IRepository<TEntity, int> 
         where TEntity : BaseEntity
     {
     }
