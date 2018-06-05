@@ -1,0 +1,198 @@
+@model Ledinpro.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Specification)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Specification)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Power)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Power)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lumen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lumen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LightingAngle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LightingAngle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Efficient)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Efficient)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dimming)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dimming)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SceneName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SceneName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductSceneId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductSceneId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ScenePicturePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ScenePicturePath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InputVoltage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InputVoltage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OutputVoltage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OutputVoltage)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InputPower)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InputPower)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OutputPower)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OutputPower)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Heat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Heat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ppf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ppf)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Spectrum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Spectrum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PicturePath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BackgroundPicturePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BackgroundPicturePath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePicturePath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MobilePicturePath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductGuide)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductGuide)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductInstallationGuide)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductInstallationGuide)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDatasheet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductDatasheet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductIES)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductIES)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateUserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateUserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreateDateTime)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

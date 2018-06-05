@@ -15,22 +15,28 @@ namespace Ledinpro.Data
             context.Database.EnsureCreated();
 
             // 1.初始化菜单
-            InitialMenu(context);
+            //InitialMenu(context);
 
             // 2.初始化轮播图
-            InitialCarousel(context);
+            //InitialCarousel(context);
 
             // 3.初始化产品
-            InitialProduct(context);
+            //InitialProduct(context);
 
             // 4.初始化新闻
-            InitialNews(context);
+            //InitialNews(context);
 
             // 5.初始化应用场景
-            InitialApplicationScene(context);
+            //InitialApplicationScene(context);
 
             // 6.初始化公司信息
-            InitialCompanyInfo(context);
+            //InitialCompanyInfo(context);
+
+            // 7.初始化产品预览图片
+            //InitialProductPreview(context);
+
+            // 8.初始化子产品
+            InitialSubProduct(context);
 
             context.SaveChanges();
         }
@@ -322,6 +328,121 @@ namespace Ledinpro.Data
                     BackgroundImage = "/upload/20181171811423.jpg",
                     MobileBackgroundImage = "/upload/2018118144592.jpg"
                 }
+            });
+        }
+
+        /// <summary>
+        /// 初始化产品预览
+        /// </summary>
+        private static void InitialProductPreview(LedinproContext context)
+        {
+            if (context.PreviewProducts.Any())
+            {
+                return;
+            }
+
+            context.PreviewProducts.AddRange(new List<PreviewProduct>()
+            {
+                new PreviewProduct()
+                {
+                    Name = "232",
+                    PicturePath = "/upload/2017427102739.png",
+                    MobilePicturePath = "",
+                    ProductId = 15
+                },
+                new PreviewProduct()
+                {
+                    Name = "249",
+                    PicturePath = "/upload/2017424111710.png",
+                    MobilePicturePath = "",
+                    ProductId = 16
+                },
+                new PreviewProduct()
+                {
+                    Name = "231",
+                    PicturePath = "/upload/201742416123.png",
+                    MobilePicturePath = "",
+                    ProductId = 17
+                },
+                new PreviewProduct()
+                {
+                    Name = "217",
+                    PicturePath = "/upload/2017425184641.png",
+                    MobilePicturePath = "",
+                    ProductId = 20
+                },
+                new PreviewProduct()
+                {
+                    Name = "240",
+                    PicturePath = "/upload/201742695514.png",
+                    MobilePicturePath = "",
+                    ProductId = 21
+                },
+                new PreviewProduct()
+                {
+                    Name = "284",
+                    PicturePath = "/upload/2017427162642.png",
+                    MobilePicturePath = "",
+                    ProductId = 27
+                },
+            });
+        }
+
+        /// <summary>
+        /// 初始化子产品
+        /// </summary>
+        private static void InitialSubProduct(LedinproContext context)
+        {
+            if (context.SubProducts.Any())
+            {
+                return;
+            }
+
+            context.SubProducts.AddRange(new List<SubProduct>() {
+                new SubProduct() { Name = "Basic", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "6700-10000lm", ColorAngle = "120°/130°", Efficient = "", Dimming = "", PicturePath = "/upload/201742214650.png", ProductId = 15},
+                new SubProduct() { Name = "Square", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/ 65W", InputPower = "", OutputPower = "", Lumen = "5800-10000lm", ColorAngle = "110°", Efficient = "", Dimming = "", PicturePath = "/upload/20174221477.png", ProductId = 15},
+                new SubProduct() { Name = "Linear Lens", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/ 65W", InputPower = "", OutputPower = "", Lumen = "6000-9000lm", ColorAngle = "30°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/201742214739.png", ProductId = 15,},
+                new SubProduct() { Name = "Batwing", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 65W", InputPower = "", OutputPower = "", Lumen = "8400lm", ColorAngle = "70x30°/110x60°", Efficient = "", Dimming = "", PicturePath = "/upload/20174221487.png", ProductId = 15,},
+                new SubProduct() { Name = "Asymmetric", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W", InputPower = "", OutputPower = "", Lumen = "5800lm", ColorAngle = "30°/45°/60°", Efficient = "", Dimming = "", PicturePath = "/upload/201742214832.png", ProductId = 15,},
+                new SubProduct() { Name = "UGR<19", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W", InputPower = "", OutputPower = "", Lumen = "5400lm", ColorAngle = "80°", Efficient = "", Dimming = "", PicturePath = "/upload/201742214848.png", ProductId = 15,},
+                new SubProduct() { Name = "Reflect", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 65W/ 130W", InputPower = "", OutputPower = "", Lumen = "8400-16000lm", ColorAngle = "45°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/20174221491.png", ProductId = 15,},
+                new SubProduct() { Name = "Entrance", Code = "", Type = SubProductType.ACCESSORIES, Power = "400mm", InputPower = "", OutputPower = "", Lumen = "3 Wires/ 5 Wires/ 7 Wires", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/201742214939.png", ProductId = 15,},
+                new SubProduct() { Name = "Trunk", Code = "", Type = SubProductType.ACCESSORIES, Power = "1500mm/ 3000mm", InputPower = "", OutputPower = "", Lumen = "3 Wires/ 5 Wires/ 7 Wires", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/201742214954.png", ProductId = 15,},
+                new SubProduct() { Name = "L  Type Connector", Code = "", Type = SubProductType.ACCESSORIES, Power = "L1/L2/L3/L4", InputPower = "", OutputPower = "", Lumen = "3 Wires/ 5 Wires/ 7 Wires", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017422141023.png", ProductId = 15,},
+                new SubProduct() { Name = "T Type connector", Code = "", Type = SubProductType.ACCESSORIES, Power = "T1/T2/T3/T4/T5", InputPower = "", OutputPower = "", Lumen = "3 Wires/ 5 Wires/ 7 Wires", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017422141038.png", ProductId = 15,},
+                new SubProduct() { Name = "X Type Connector", Code = "", Type = SubProductType.ACCESSORIES, Power = "X1/ X2/ X3", InputPower = "", OutputPower = "", Lumen = "3 Wires/ 5 Wires/ 7 Wires", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017422141047.png", ProductId = 15,},
+                new SubProduct() { Name = "Basic", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 25W/50W", InputPower = "", OutputPower = "", Lumen = "3200-6500lm", ColorAngle = "110°", Efficient = "", Dimming = "", PicturePath = "/upload/2017424141212.png", ProductId = 16,},
+                new SubProduct() { Name = "Basic", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 30W/60W", InputPower = "", OutputPower = "", Lumen = "3900-7800lm", ColorAngle = "110°", Efficient = "", Dimming = "", PicturePath = "/upload/2017424141428.png", ProductId = 16,},
+                new SubProduct() { Name = "UGR<19", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 20W", InputPower = "", OutputPower = "", Lumen = "2400lm", ColorAngle = "80°", Efficient = "", Dimming = "", PicturePath = "/upload/2017424141549.png", ProductId = 16,},
+                new SubProduct() { Name = "UGR<19", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 25W", InputPower = "", OutputPower = "", Lumen = "3000lm", ColorAngle = "80°", Efficient = "", Dimming = "", PicturePath = "/upload/2017424141647.png", ProductId = 16,},
+                new SubProduct() { Name = "Sliding steel clips", Code = "", Type = SubProductType.ACCESSORIES, Power = "stainless steel", InputPower = "", OutputPower = "", Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017424142047.png", ProductId = 16,},
+                new SubProduct() { Name = "Blind cover", Code = "", Type = SubProductType.ACCESSORIES, Power = "1200mm/1500mm", InputPower = "", OutputPower = "", Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017424142124.png", ProductId = 16,},
+                new SubProduct() { Name = "Basic DP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm  65W 1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "120lm/W 130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017424185328.png", ProductId = 17,},
+                new SubProduct() { Name = "Basic PG", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 65W 1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "120lm/W 130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425101536.png", ProductId = 17,},
+                new SubProduct() { Name = "Basic AP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 65W 1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "120lm/W 130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425101817.png", ProductId = 17,},
+                new SubProduct() { Name = "Baisc P", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 65W 1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "120lm/W 130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425101940.png", ProductId = 17,},
+                new SubProduct() { Name = "Reflect DP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm/1500mm 130W", InputPower = "", OutputPower = "", Lumen = "110lm/W 120lm/W 140lm/W", ColorAngle = "45°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/201742510310.png", ProductId = 17,},
+                new SubProduct() { Name = "Reflect PG", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm/1500mm 130W", InputPower = "", OutputPower = "", Lumen = "110lm/W 120lm/W 140lm/W", ColorAngle = "45°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425103143.png", ProductId = 17,},
+                new SubProduct() { Name = "Reflect AP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm/1500mm 130W", InputPower = "", OutputPower = "", Lumen = "110lm/W 120lm/W 140lm/W", ColorAngle = "45°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425103229.png", ProductId = 17,},
+                new SubProduct() { Name = "Reflect P", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm/1500mm 130W", InputPower = "", OutputPower = "", Lumen = "110lm/W 120lm/W 140lm/W", ColorAngle = "45°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425103310.png", ProductId = 17,},
+                new SubProduct() { Name = "Sliding steel clips", Code = "", Type = SubProductType.ACCESSORIES, Power = "stainless steel", InputPower = "", OutputPower = "", Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017425103721.png", ProductId = 17,},
+                new SubProduct() { Name = "Basic P", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 30W/45W/65W", InputPower = "", OutputPower = "", Lumen = "130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425184911.png", ProductId = 20,},
+                new SubProduct() { Name = "Basic DP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 30W/45W/65W", InputPower = "", OutputPower = "", Lumen = "130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185024.png", ProductId = 20,},
+                new SubProduct() { Name = "Basic PG", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 30W/45W/65W", InputPower = "", OutputPower = "", Lumen = "130lm/W 150lm/W", ColorAngle = "130°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185124.png", ProductId = 20,},
+                new SubProduct() { Name = "Batwing P", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 65W", InputPower = "", OutputPower = "", Lumen = "130lm/W", ColorAngle = "70x30°/110x60°", Efficient = "", Dimming = "", PicturePath = "/upload/201742518532.png", ProductId = 20,},
+                new SubProduct() { Name = "Batwing DP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 65W", InputPower = "", OutputPower = "", Lumen = "130lm/W", ColorAngle = "70x30°/110x60°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185436.png", ProductId = 20,},
+                new SubProduct() { Name = "Batwing PG", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 65W", InputPower = "", OutputPower = "", Lumen = "130lm/W", ColorAngle = "70x30°/110x60°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185524.png", ProductId = 20,},
+                new SubProduct() { Name = "Lens P", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "130lm/W 150lm/W", ColorAngle = "30°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185651.png", ProductId = 20,},
+                new SubProduct() { Name = "Lens DP", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/65W", InputPower = "", OutputPower = "", Lumen = "130lm/W 150lm/W", ColorAngle = "30°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185755.png", ProductId = 20,},
+                new SubProduct() { Name = "Lens PG", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 45W/65W", InputPower = "", OutputPower = "" ,Lumen = "130lm/W 150lm/W", ColorAngle = "30°/60°/90°", Efficient = "", Dimming = "", PicturePath = "/upload/2017425185852.png", ProductId = 20,},
+                new SubProduct() { Name = "Sliding steel clips", Code = "", Type = SubProductType.ACCESSORIES, Power = "stainless steel", InputPower = "", OutputPower = "", Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/20174251903.png", ProductId = 20,},
+                new SubProduct() { Name = "steel clips", Code = "", Type = SubProductType.ACCESSORIES, Power = "stainless steel", InputPower = "", OutputPower = "" ,Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/20174251916.png", ProductId = 20,},
+                new SubProduct() { Name = "Basic", Code = "", Type = SubProductType.SPECIFICATION, Power = "1200mm 20W/25W/35W/45W", InputPower = "", OutputPower = "", Lumen = "120lm/W", ColorAngle = "120°", Efficient = "", Dimming = "", PicturePath = "/upload/201742610632.png", ProductId = 21,},
+                new SubProduct() { Name = "Basic", Code = "", Type = SubProductType.SPECIFICATION, Power = "1500mm 30W/45W/60W", InputPower = "" ,OutputPower = "" ,Lumen = "120lm/W", ColorAngle = "120°", Efficient = "", Dimming = "", PicturePath = "/upload/201742610731.png", ProductId = 21,},
+                new SubProduct() { Name = "Sliding steel clips", Code = "", Type = SubProductType.ACCESSORIES, Power = "stainless steel", InputPower = "", OutputPower = "" ,Lumen = "", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017426101946.png", ProductId = 21,},
+                new SubProduct() { Name = "284-0001", Code = "", Type = SubProductType.SPECIFICATION, Power = "13W/17W/21W/25W", InputPower = "", OutputPower = "", Lumen = "284x30x22（LxWxH）", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/2017427163011.png", ProductId = 27,},
+                new SubProduct() { Name = "284-0002", Code = "", Type = SubProductType.SPECIFICATION, Power = "25W/31W/35W/41W", InputPower = "", OutputPower = "", Lumen = "284x30x22（LxWxH）", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/201742716327.png", ProductId = 27,},
+                new SubProduct() { Name = "284-0003", Code = "", Type = SubProductType.SPECIFICATION, Power = "45W/50W/54W/58W", InputPower = "", OutputPower = "", Lumen = "360x30x21mm(LxWxH)", ColorAngle = "", Efficient = "", Dimming = "", PicturePath = "/upload/201742716369.png", ProductId = 27,}
             });
         }
     }

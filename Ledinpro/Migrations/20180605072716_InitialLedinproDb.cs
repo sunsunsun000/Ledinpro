@@ -308,7 +308,9 @@ namespace Ledinpro.Migrations
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     OutputPower = table.Column<string>(maxLength: 64, nullable: true),
                     PicturePath = table.Column<string>(nullable: true),
-                    ProductId = table.Column<int>(nullable: false)
+                    Power = table.Column<string>(maxLength: 64, nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
+                    Type = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -23,6 +23,18 @@ namespace Ledinpro.Models
         public string Code { get; set; }
 
         /// <summary>
+        /// 子产品类型
+        /// </summary>
+        public SubProductType Type { get; set;}
+
+        /// <summary>
+        /// 功率
+        /// </summary>
+        [MaxLength(64, ErrorMessage = "输入功率过长！最多64字符！")]
+        [Display(Name = "功率")]
+        public string Power { get; set; }
+
+        /// <summary>
         /// 输入功率
         /// </summary>
         [MaxLength(64, ErrorMessage = "输入功率过长！最多64字符！")]

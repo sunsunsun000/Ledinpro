@@ -32,6 +32,19 @@ namespace Ledinpro.Controllers
         /// <returns></returns>
         public IActionResult LightingIndex()
         {
+            var carousels = (from c in _ledinproContext.Carousels
+                             where c.Type != ProductType.HORTICULTURE
+                             orderby c.SortNumber ascending
+                             select c).ToList<Carousel>();
+
+            ViewBag.Carousels = carousels;
+
+            var products = (from p in _ledinproContext.Products
+                            where p.Type != ProductType.HORTICULTURE
+                            select p).ToList();
+
+            ViewBag.Products = products;
+
             return View();
         }
 
@@ -82,6 +95,12 @@ namespace Ledinpro.Controllers
             }
             
             return View();
+        }
+
+        [HttpGet]
+        public string Lighting()
+        {
+            return "Lighting";
         }
 
         public IActionResult About()

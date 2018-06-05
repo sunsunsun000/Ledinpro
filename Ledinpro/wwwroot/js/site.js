@@ -40,6 +40,6 @@ $(document).ready(function () {
         e.preventDefault()
         // 字符串转换成数字类型使用Number
         var scrollId = (1000000 + Number(this.id)).toString();
-        $('html,body').animate({ scrollTop: $('#' + scrollId).offset().top - 93 }, 1000)
+        $('html,body').animate({ scrollTop: $('#' + scrollId).offset().top - 93 }, 1000);
     });
 })

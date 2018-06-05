@@ -501,7 +501,12 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("PicturePath");
 
+                    b.Property<string>("Power")
+                        .HasMaxLength(64);
+
                     b.Property<int>("ProductId");
+
+                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 

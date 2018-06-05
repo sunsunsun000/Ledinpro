@@ -1,0 +1,263 @@
+@{
+    Layout = "~/Views/Shared/_LightingLayout.cshtml";
+    string activeFlag = "item";
+    var CurrentProduct = ViewBag.Product;
+    var PreviewProducts = ViewBag.PreviewProducts;
+    var ProductFeatures = ViewBag.FeatureList;
+    var SubProducts = ViewBag.SubProductList;
+}
+
+<div class="lightGrayBackground">
+    <div class="container">
+        <div class="row">
+            <!-- 预览图片标题 -->
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 co-lg-10">
+                <h3 class="detailProductTitle">Overview</h3>
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- 预览图片轮播图 -->
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 co-lg-10">
+                <div id="previewProductCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        @foreach (var item in PreviewProducts)
+                        {
+                            if (PreviewProducts.IndexOf(item) == 0)
+                            {
+                                activeFlag = "item active";
+                            }
+                            else
+                            {
+                                activeFlag = "item";
+                            }
+                            <div class="@(activeFlag)">
+                                <div class="item active">
+                                    <img src=@(item.PicturePath) class="img-responsive" />
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top:15px">
+                                <!--描述部分-->
+                                <pre class="preDes">@CurrentProduct.Description</pre>
+                            </div>
+                            <!--特点图标部分-->
+                            <div style="display:inline">
+                                @foreach (var feature in ProductFeatures)
+                                {
+                                    <img class="imgThirtySize" src=@(feature.PicturePath) alt=@(feature.Name) />
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color: white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 co-lg-10">
+                @{
+                    bool isExistSpecification = false;
+                    foreach (var item in SubProducts)
+                    {
+                        if (item.Type == SubProductType.SPECIFICATION)
+                        {
+                            isExistSpecification = true;
+                            break;
+                        }
+                    }
+                }
+
+                @if (isExistSpecification == true)
+                {
+                    <h3 class="detailProductTitle">Specification</h3>
+                    <hr class="hrhorizontal" />
+                    <br />
+                }
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                <div class="row">
+                    @foreach (var item in SubProducts)
+                    {
+                        if (item.Type == SubProductType.ACCESSORIES)
+                        {
+                            continue;
+                        }
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 co-lg-3">
+                            <div class="whiteProductParameter">
+                                <div class="pictureLight">
+                                    <img class="img-responsive hundredWidthImg" src=@(item.PicturePath) alt="" />
+                                </div>
+                                <div class="desPadding">
+                                    <p>@(item.Name)</p>
+                                    <p>@(item.Power)</p>
+                                    <p>@(item.Lumen)</p>
+                                    <p>@(item.ColorAngle)</p>
+                                    <p>@(item.Dimming)</p>
+                                    <p>@(item.Efficient)</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 co-lg-10">
+                @{
+                    bool isExistAccessory = false;
+                    foreach (var item in SubProducts)
+                    {
+                        if (item.Type == SubProductType.ACCESSORIES)
+                        {
+                            isExistAccessory = true;
+                            break;
+                        }
+                    }
+                }
+
+                @if (isExistAccessory == true)
+                {
+                    <h3 class="detailProductTitle">Accessory</h3>
+                    <hr class="hrhorizontal" />
+                    <br />
+                }
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                    @foreach (var item in SubProducts)
+                    {
+                        if (item.Type == SubProductType.SPECIFICATION)
+                        {
+                            continue;
+                        }
+
+                        <div class="col-xs-6 col-sm-4 col-md-3 co-lg-3 productImgBottomMargin">
+                            <div class="whiteProductParameter">
+                                <div class="pictureLight">
+                                    <img class="img-responsive hundredWidthImg" src=@(item.PicturePath) alt="" />
+                                </div>
+                                <div class="desPadding">
+                                    <p>@(item.Name)</p>
+                                    <p>@(item.Power)</p>
+                                    <p>@(item.Lumen)</p>
+                                    <p>@(item.ColorAngle)</p>
+                                    <p>@(item.Dimming)</p>
+                                    <p>@(item.Efficient)</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+<div class="lightGrayBackground downPadding">
+    <div class="container">
+        @if (CurrentProduct.ProductGuide != null || CurrentProduct.ProductInstallationGuide != null
+                || CurrentProduct.ProductDatasheet != null || CurrentProduct.ProductIES != null)
+        {
+            <div class="row">
+                <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10 co-lg-10">
+                    <h3 class="detailProductTitle">Download</h3>
+                    <br />
+                </div>
+                <div class="col-xs-12 col-sm-1 col-md-1 co-lg-1">
+
+                </div>
+            </div>
+        }
+
+        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+        </div>
+        <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+            @if (!string.IsNullOrEmpty(CurrentProduct.ProductGuide) && !string.IsNullOrWhiteSpace(CurrentProduct.ProductGuide))
+            {
+                <a class="aNoneDec" href=@(CurrentProduct.ProductGuide)>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class="imgThirtySize" src="~/images/pdf_icon.png" alt="Alternate Text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Guide
+                </a>
+                <br />
+                <br />
+            }
+            @if (!string.IsNullOrEmpty(CurrentProduct.ProductInstallationGuide) && !string.IsNullOrWhiteSpace(CurrentProduct.ProductInstallationGuide))
+            {
+                <a class="aNoneDec" href=@(CurrentProduct.ProductInstallationGuide)>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class="imgThirtySize" src="~/images/pdf_icon.png" alt="Alternate Text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Installation Guide
+                </a>
+                <br />
+                <br />
+            }
+            @if (!string.IsNullOrEmpty(CurrentProduct.ProductDatasheet) && !string.IsNullOrWhiteSpace(CurrentProduct.ProductDatasheet))
+            {
+                <a class="aNoneDec" href=@(CurrentProduct.ProductDatasheet)>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class="imgThirtySize" src="~/images/pdf_icon.png" alt="Alternate Text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Datasheet
+                </a>
+                <br />
+                <br />
+            }
+            @if (!string.IsNullOrEmpty(CurrentProduct.ProductIES) && !string.IsNullOrWhiteSpace(CurrentProduct.ProductIES))
+            {
+                <a class="aNoneDec" href=@(CurrentProduct.ProductIES)>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img class="imgThirtySize" src="~/images/zip.png" alt="Alternate Text" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IES-Data LDT-Data
+                </a>
+            }
+        </div>
+        <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+        </div>
+    </div>
+</div>

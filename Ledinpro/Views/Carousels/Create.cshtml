@@ -1,0 +1,121 @@
+@model Ledinpro.Models.Carousel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <p>新建轮播图</p>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Name" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Title" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Description" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <textarea asp-for="Description" class="form-control" ></textarea>
+                    </div>
+                </div>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="PicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input type="file" asp-for="PicturePath" class="form-control" ></input>
+                    </div>
+                </div>
+                <span asp-validation-for="PicturePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="MobilePicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input type="file" asp-for="MobilePicturePath" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="MobilePicturePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="SortNumber" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="SortNumber" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="SortNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Type" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <!-- <input asp-for="Type" class="form-control" /> -->
+                        <select asp-for="Type" asp-items="@Html.GetEnumSelectList(typeof(ProductType))"></select>
+                    </div>
+                </div>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="RelativeProductId" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="RelativeProductId" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="RelativeProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="创建" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">返回</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

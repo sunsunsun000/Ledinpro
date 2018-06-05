@@ -1,7 +1,82 @@
 ﻿@{
     ViewData["Title"] = "LightingIndex";
     Layout = "~/Views/Shared/_LightingLayout.cshtml";
+    List<Carousel> CarouselList = ViewBag.Carousels;
+    List<Product> ProductList = ViewBag.Products;
+    string activeFlag = "item";
+    string productDetailLinkStr = @"/Products/ProductDetailInfo?productId=";
 }
 
+<!-- 轮播图 -->
+<div id="lightingCarousel" class="carousel slide container" style="padding-bottom: 20px" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        @foreach (var item in CarouselList)
+        {
+            if (CarouselList.IndexOf(item) == 0)
+            {
+                activeFlag = "item active";
+            }
+            else
+            {
+                activeFlag = "item";
+            }
+
+            <div class="@(activeFlag)">
+                <div class="hidden-xs hidden-sm visible-md visible-lg">
+                    <a href="#">
+                        <img src=@(item.PicturePath) class="img-responsive" />
+                    </a>
+                    <p class="marginTitleDes">
+                        <span class="carouselTitle">@item.Title</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="carouselDes">@item.Description</span>
+                    </p>
+                </div>
+
+                <div class="visible-xs visible-sm hidden-md hidden-lg">
+                    <a href="#">
+                        <img src=@(item.MobilePicturePath) class="img-responsive" />
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- 大屏幕 -->
+<div style="background-color: white">
+    <div class="hidden-xs hidden-sm visible-md visible-lg container">
+        <br />
+        <p>
+            Products
+        </p>
+
+        <div class="row">
+            @foreach(var item in ProductList)
+            {
+                productDetailLinkStr = @"/Products/ProductDetailInfo?id=";
+                productDetailLinkStr = productDetailLinkStr + item.Id;
+                <div class="col-md-3 col-lg-3">
+                    <div class="whiteProductParameter">
+                        <div class="pictureLight">
+                            <a href=@(productDetailLinkStr)>
+                                <img class="img-responsive hundredPercentWidthHeigth" src=@(item.PicturePath) alt="Alternate Text" />
+                                <div class="productAbsoluteDiv">
+                                    <p>@(item.Power)</p>
+                                    <p>@(item.Specification)</p>
+                                    <p>@(item.Lumen)</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="desPadding">
+                            <p>@(item.Code)</p>
+                            <p>@(item.Name)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 
 

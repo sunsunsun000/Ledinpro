@@ -12,7 +12,7 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    [Migration("20180604103238_InitialLedinproDb")]
+    [Migration("20180605072716_InitialLedinproDb")]
     partial class InitialLedinproDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -502,7 +502,12 @@ namespace Ledinpro.Migrations
 
                     b.Property<string>("PicturePath");
 
+                    b.Property<string>("Power")
+                        .HasMaxLength(64);
+
                     b.Property<int>("ProductId");
+
+                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 

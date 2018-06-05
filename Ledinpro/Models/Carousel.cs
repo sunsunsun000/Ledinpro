@@ -55,6 +55,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 类别
         /// </summary>
+        [Display(Name = "类型")]
         public ProductType? Type { get; set; }
 
         /// <summary>
