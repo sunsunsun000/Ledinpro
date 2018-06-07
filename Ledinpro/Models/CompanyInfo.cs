@@ -34,5 +34,14 @@ namespace Ledinpro.Models
 
         [Display(Name = "手机背景图片")]
         public string MobileBackgroundImage { get; set; }
+
+        [Display(Name = "公司历史")]
+        public string FreeOne { get; set; }
+
+        [Display(Name = "公司业务")]
+        public string FreeTwo { get; set; }
+        
+        [Display(Name = "手机版背景图片")]
+        public string FreeThree { get; set; }
     }
 }

@@ -1,0 +1,54 @@
+@model IEnumerable<Ledinpro.Models.Product>
+
+@{
+    if (ViewBag.isPlant == true)
+    {
+        Layout = "~/Views/Shared/_LedinproLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_LightingLayout.cshtml";
+    }
+    
+    string productDetailLinkStr = "/Products/ProductDetailInfo?id=";
+}
+
+<div style="background-color: white">
+    <div class="container" style="margin-top: 50px">
+        <table class="table table-bordered">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Code</th>
+                <th>Product Guide</th>
+                <th>Installation Guide</th>
+                <th>Datasheet</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Code</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ProductGuide) && !string.IsNullOrWhiteSpace(item.ProductGuide))
+                        {
+                            <a style="text-decoration:underline;" href=@item.ProductGuide>Download</a>
+                        }
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ProductInstallationGuide) && !string.IsNullOrWhiteSpace(item.ProductInstallationGuide))
+                        {
+                            <a style="text-decoration:underline;" href=@item.ProductGuide>Download</a>
+                        }
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ProductDatasheet) && !string.IsNullOrWhiteSpace(item.ProductDatasheet))
+                        {
+                            <a style="text-decoration:underline;" href=@item.ProductGuide>Download</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

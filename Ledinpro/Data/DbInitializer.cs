@@ -14,31 +14,31 @@ namespace Ledinpro.Data
         {
             context.Database.EnsureCreated();
 
-            // 1.初始化菜单
-            //InitialMenu(context);
+            // // 1.初始化菜单
+            // InitialMenu(context);
 
-            // 2.初始化轮播图
-            //InitialCarousel(context);
+            // // 2.初始化轮播图
+            // InitialCarousel(context);
 
-            // 3.初始化产品
-            //InitialProduct(context);
+            // // 3.初始化产品
+            // InitialProduct(context);
 
-            // 4.初始化新闻
-            //InitialNews(context);
+            // // 4.初始化新闻
+            // InitialNews(context);
 
-            // 5.初始化应用场景
-            //InitialApplicationScene(context);
+            // // 5.初始化应用场景
+            // InitialApplicationScene(context);
 
-            // 6.初始化公司信息
-            //InitialCompanyInfo(context);
+            // // 6.初始化公司信息
+            // InitialCompanyInfo(context);
 
-            // 7.初始化产品预览图片
-            //InitialProductPreview(context);
+            // // 7.初始化产品预览图片
+            // InitialProductPreview(context);
 
-            // 8.初始化子产品
-            InitialSubProduct(context);
+            // // 8.初始化子产品
+            // InitialSubProduct(context);
 
-            context.SaveChanges();
+            // context.SaveChanges();
         }
 
         /// <summary>

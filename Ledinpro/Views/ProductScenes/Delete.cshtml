@@ -1,0 +1,58 @@
+@model Ledinpro.Models.ProductScene
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <p>删除</p>
+    <h3 style="color: black">确认删除?</h3>
+</div>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </dt>
+        <dd>
+            <img class="imgThirtySize" src="@(Model.PicturePath)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePicturePath)
+        </dt>
+        <dd>
+            <img class="imgThirtySize" src="@(Model.MobilePicturePath)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductApplicationScene)
+        </dt>
+        <dd>
+            <img class="imgThirtySize" src="@(Model.ProductApplicationScene)" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="删除" class="btn btn-danger" /> |
+        <a class="btn btn-primary" asp-action="Index">放弃</a>
+    </form>
+</div>

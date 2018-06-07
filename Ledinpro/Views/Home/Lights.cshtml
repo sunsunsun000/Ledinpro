@@ -1,0 +1,177 @@
+@model IEnumerable<Ledinpro.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_LightingLayout.cshtml";
+    string productDetailLinkStr = "/Products/ProductDetailInfo?id=";
+}
+
+<div class="introductionBackground">
+    <div class="container">
+        <div class="visible-xs visible-sm hidden-md hidden-lg">
+            <img src="~/images/lightsmobile.png" alt="Alternate Text" class="img-responsive" />
+        </div>
+        <div class="hidden-xs hidden-sm visible-md visible-lg">
+            <img src="~/images/lights.png" alt="Alternate Text" class="img-responsive" />
+        </div>
+    </div>
+    <br />
+</div>
+
+<br />
+
+<div style="background-color: white">
+    <br />
+    <div id="lightingContainer" class="container lightWthieColor">
+        @if (ViewBag.isShowButton == true)
+        {
+            <div class="btn-group" role="group" aria-label="...">
+                <button id="productButton" type="button" class="btn btn-default orageColor" onclick="productButtonClick();">&nbsp;&nbsp;Product&nbsp;&nbsp;</button>
+                <button id="applicationButton" type="button" class="btn btn-default lightgrayBackgroundButton" onclick="applicationButtonClick();">Application</button>
+            </div>
+            <br />
+            <br />
+        }
+        <!--产品列表-->
+        <div class="row">
+            @foreach (var p in Model)
+            {
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                    <div class="productParameter desBlueBackground">
+                        <div class="pictureLight">
+                            <!--对于链接需要把产品的id传递过去，以获取到对应产品的详细信息-->
+                            @{
+                                productDetailLinkStr = @"/Products/ProductDetailInfo?id=" + p.Id;
+                            }
+                            <a href=@(productDetailLinkStr)>
+                                    <img class="img-responsive hundredWidthImg lightingProductImg" src=@p.PicturePath alt="Alternate Text" />
+                                    <img class="img-responsive hundredWidthImg displayNone lightingApplicationImg" src=@p.ScenePicturePath alt="Alternate Text" />
+
+                            </a>
+                        </div>
+                        <div class="hidden-xs hidden-sm visible-md visible-lg">
+                            <div class="desPadding">
+                                <!--产品的简单描述-->
+                                @if (string.IsNullOrEmpty(p.Code) || string.IsNullOrWhiteSpace(p.Code))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Code</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Name) || string.IsNullOrWhiteSpace(p.Name))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Name</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Power) || string.IsNullOrWhiteSpace(p.Power))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Power</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Lumen) || string.IsNullOrWhiteSpace(p.Lumen))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Lumen</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.LightingAngle) || string.IsNullOrWhiteSpace(p.LightingAngle))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.LightingAngle</p>
+                                }
+                            </div>
+                        </div>
+                        <div class="visible-xs visible-sm hidden-md hidden-lg">
+                            <div class="desPadding desPaddingMobileP">
+                                <!--产品的简单描述-->
+                                @if (string.IsNullOrEmpty(p.Code) || string.IsNullOrWhiteSpace(p.Code))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Code</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Name) || string.IsNullOrWhiteSpace(p.Name))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Name</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Power) || string.IsNullOrWhiteSpace(p.Power))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Power</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.Lumen) || string.IsNullOrWhiteSpace(p.Lumen))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.Lumen</p>
+                                }
+
+                                @if (string.IsNullOrEmpty(p.LightingAngle) || string.IsNullOrWhiteSpace(p.LightingAngle))
+                                {
+                                    <p><br /></p>
+                                }
+                                else
+                                {
+                                    <p>@p.LightingAngle</p>
+                                }
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        function productButtonClick() {
+            $("#productButton").css("color", "#f37044");
+            $("#productButton").css("background", "white");
+            $("#applicationButton").css("background", "lightgray");
+            $("#applicationButton").css("color", "black");
+            $(".lightingProductImg").css("display", "block");
+            $(".lightingApplicationImg").css("display", "none");
+        }
+        function applicationButtonClick() {
+            $("#applicationButton").css("color", "#f37044");
+            $("#applicationButton").css("background", "white");
+            $("#productButton").css("background", "lightgray");
+            $("#productButton").css("color", "black");
+            $(".lightingProductImg").css("display", "none");
+            $(".lightingApplicationImg").css("display", "block");
+        }
+    </script>
+}

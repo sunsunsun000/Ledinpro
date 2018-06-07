@@ -11,6 +11,15 @@
 
 <!DOCTYPE html>
 
+<div class="row">
+    <div class="col-md-2 col-lg-2 fieldTitle">
+        
+    </div>
+    <div class="col-md-8 col-lg-8">
+        
+    </div>
+</div>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -46,12 +55,13 @@
     {
         <div class="blackNavigationBackground titleNavigation">
             <div class="container">
-                <br />
                 <p style="margin: 0 0 30px 0">@(ViewBag.NavTitle)</p>
             </div>
         </div>
     }
-    @RenderBody()
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
 
     <footer style="background-color:black">
         @*@Html.Partial("SalesContacts")*@
@@ -65,5 +75,7 @@
 
     <script src="http://s95.cnzz.com/z_stat.php?id=1259345350&amp;show=pic" type="text/javascript"></script>
     <script src="http://c.cnzz.com/core.php?web_id=1259345350&amp;show=pic&amp;t=z" charset="utf-8" type="text/javascript"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

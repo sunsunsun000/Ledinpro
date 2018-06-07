@@ -1,0 +1,49 @@
+@model IEnumerable<Ledinpro.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_LightingLayout.cshtml";
+    string productDetailLinkStr = "/Products/ProductDetailInfo?id=";
+}
+
+<div class="introductionBackground">
+    <div class="container">
+        <div class="visible-xs visible-sm hidden-md hidden-lg">
+            <img src="~/images/controlmobile.png" alt="Alternate Text" class="img-responsive" />
+        </div>
+        <div class="hidden-xs hidden-sm visible-md visible-lg">
+            <img src="~/images/control.png" alt="Alternate Text" class="img-responsive" />
+        </div>
+    </div>
+    <br />
+</div>
+
+<br />
+
+<div style="background-color: white">
+    <br />
+    <div class="container">
+        <div id="intellgentcontrolrow" class="row">
+            @foreach (var p in Model)
+            {
+                productDetailLinkStr = "/Products/ProductDetailInfo?id=" + p.Id;
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                    <div class="productParameter desBlueBackground">
+                        <div class="pictureLight">
+                            <a href=@(productDetailLinkStr)>
+                                <img class="img-responsive hundredWidthImg" src=@(p.PicturePath) alt="Alternate Text" />
+                            </a>
+                        </div>
+                        <div class="desPadding">
+                            <p>@(p.Code)</p>
+                            <p>@(p.Name)</p>
+                            <p>@(p.Power)</p>
+                            <p>@(p.Dimming)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<br />

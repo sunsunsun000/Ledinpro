@@ -45,6 +45,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 场景类型
         /// </summary>
+        [Display(Name = "场景类型")]
         public ProductType? Type { get; set; }
 
         /// <summary>

@@ -62,10 +62,10 @@
                                     <a href="#" id="Contact_Us">Contact Us</a>
                                 </li>
                             }
-                            else if (item.Title.Equals("DownLoad"))
+                            else if (item.Title.Equals("Download"))
                             {
                                 <li>
-                                    <a href="#" id="Contact_Us">Contact Us</a>
+                                    <a asp-controller="Home" asp-action=@item.Link asp-route-isPlant="true" id="Download">Download</a>
                                 </li>
                             }
                             else
@@ -83,7 +83,7 @@
         <hr class="hidden-xs hidden-sm visible-md visible-lg orangeHr" />
         </nav>
 
-        <div class="">
+        <div style="width: 100%">
             @RenderBody()
         </div>
 

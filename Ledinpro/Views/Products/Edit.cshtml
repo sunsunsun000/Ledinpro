@@ -1,177 +1,309 @@
 @model Ledinpro.Models.Product
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
-
-<h4>Product</h4>
+<div class="leftTopTitle">
+    <p>编辑</a>
+</div>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+        <form method="POST" enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Code" class="control-label"></label>
-                <input asp-for="Code" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Code" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Code" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Code" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Name" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <select asp-for="Type" class="form-control"></select>
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Type" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <select asp-for="Type" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(ProductType))"></select>
+                    </div>
+                </div>
                 <span asp-validation-for="Type" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Description" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                    </div>
+                </div>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Specification" class="control-label"></label>
-                <input asp-for="Specification" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Specification" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Specification" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Specification" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Power" class="control-label"></label>
-                <input asp-for="Power" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Power" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Power" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Power" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Lumen" class="control-label"></label>
-                <input asp-for="Lumen" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Lumen" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Lumen" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Lumen" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LightingAngle" class="control-label"></label>
-                <input asp-for="LightingAngle" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="LightingAngle" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="LightingAngle" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="LightingAngle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Efficient" class="control-label"></label>
-                <input asp-for="Efficient" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Efficient" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Efficient" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Efficient" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Dimming" class="control-label"></label>
-                <input asp-for="Dimming" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Dimming" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Dimming" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Dimming" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SceneName" class="control-label"></label>
-                <input asp-for="SceneName" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="SceneName" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="SceneName" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="SceneName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductSceneId" class="control-label"></label>
-                <input asp-for="ProductSceneId" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ProductSceneId" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <select asp-for="ProductSceneId" class="form-control" asp-items="@(ViewBag.SceneList)"></select>
+                    </div>
+                </div>
                 <span asp-validation-for="ProductSceneId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ScenePicturePath" class="control-label"></label>
-                <input asp-for="ScenePicturePath" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ScenePicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <img src="@Model.ScenePicturePath" class="imgThirtySize" />
+                        <input type="hidden" asp-for="ScenePicturePath" />
+                        <input type="file" id="ScenePicturePath" name="scenePicture" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="ScenePicturePath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="InputVoltage" class="control-label"></label>
-                <input asp-for="InputVoltage" class="form-control" />
-                <span asp-validation-for="InputVoltage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OutputVoltage" class="control-label"></label>
-                <input asp-for="OutputVoltage" class="form-control" />
-                <span asp-validation-for="OutputVoltage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InputPower" class="control-label"></label>
-                <input asp-for="InputPower" class="form-control" />
-                <span asp-validation-for="InputPower" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OutputPower" class="control-label"></label>
-                <input asp-for="OutputPower" class="form-control" />
-                <span asp-validation-for="OutputPower" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Weight" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Weight" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heat" class="control-label"></label>
-                <input asp-for="Heat" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Heat" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Heat" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Heat" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ppf" class="control-label"></label>
-                <input asp-for="Ppf" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Ppf" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <input asp-for="Ppf" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="Ppf" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Spectrum" class="control-label"></label>
-                <input asp-for="Spectrum" class="form-control" />
-                <span asp-validation-for="Spectrum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PicturePath" class="control-label"></label>
-                <input asp-for="PicturePath" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="PicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <img src="@Model.PicturePath" class="imgThirtySize" />
+                        <input type="hidden" asp-for="PicturePath" />
+                        <input type="file" id="PicturePath" name="picture" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="PicturePath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BackgroundPicturePath" class="control-label"></label>
-                <input asp-for="BackgroundPicturePath" class="form-control" />
-                <span asp-validation-for="BackgroundPicturePath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MobilePicturePath" class="control-label"></label>
-                <input asp-for="MobilePicturePath" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="MobilePicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <img src="@Model.MobilePicturePath" class="imgThirtySize" />
+                        <input type="hidden" asp-for="MobilePicturePath" />
+                        <input type="file" id="MobilePicturePath" name="mobilePicture" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="MobilePicturePath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductGuide" class="control-label"></label>
-                <input asp-for="ProductGuide" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="BackgroundPicturePath" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <img src="@Model.BackgroundPicturePath" class="imgThirtySize" />
+                        <input type="hidden" asp-for="BackgroundPicturePath" />
+                        <input type="file" id="BackgroundPicturePath" name="backgroundPicture" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="BackgroundPicturePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="Spectrum" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <img src="@Model.Spectrum" class="imgThirtySize" />
+                        <input type="hidden" asp-for="Spectrum" />
+                        <input type="file" id="Spectrum" name="spectrum" class="form-control" />
+                    </div>
+                </div>
+                <span asp-validation-for="Spectrum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ProductGuide" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <label>@(Model.ProductGuide)</label>
+                        <input type="hidden" asp-for="ProductGuide" />
+                        <input type="file" id="ProductGuide" name="productGuide" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="ProductGuide" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductInstallationGuide" class="control-label"></label>
-                <input asp-for="ProductInstallationGuide" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ProductInstallationGuide" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <label>@(Model.ProductInstallationGuide)</label>
+                        <input type="hidden" asp-for="ProductInstallationGuide" />
+                        <input type="file" id="ProductInstallationGuide" name="productInstallGuide" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="ProductInstallationGuide" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductDatasheet" class="control-label"></label>
-                <input asp-for="ProductDatasheet" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ProductDatasheet" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <label>@(Model.ProductDatasheet)</label>
+                        <input type="hidden" asp-for="ProductDatasheet" />
+                        <input type="file" id="ProductDatasheet" name="productDatasheet" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="ProductDatasheet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProductIES" class="control-label"></label>
-                <input asp-for="ProductIES" class="form-control" />
+                <div class="row">
+                    <div class="col-md-2 col-lg-2 fieldTitle">
+                        <label asp-for="ProductIES" class="control-label"></label>
+                    </div>
+                    <div class="col-md-8 col-lg-8">
+                        <label>@(Model.ProductIES)</label>
+                        <input asp-for="ProductIES" type="hidden" />
+                        <input type="file" id="ProductIES" name="productIes" class="form-control" />
+                    </div>
+                </div>
                 <span asp-validation-for="ProductIES" class="text-danger"></span>
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="CreateUserName" class="control-label"></label>
-                <input asp-for="CreateUserName" class="form-control" />
-                <span asp-validation-for="CreateUserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateDateTime" class="control-label"></label>
-                <input asp-for="CreateDateTime" class="form-control" />
-                <span asp-validation-for="CreateDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a asp-action="Index" asp-route-sceneId="@(ViewBag.SceneId)" class="btn btn-danger" style="float: right">放弃保存</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

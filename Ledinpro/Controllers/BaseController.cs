@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Ledinpro.Data;
 using Ledinpro.Models;
-
+using Microsoft.AspNetCore.Hosting;
 namespace Ledinpro.Controllers
 {
     public class BaseController : Controller
@@ -11,9 +11,11 @@ namespace Ledinpro.Controllers
         // 菜单数据
         public List<Menu> menus;
         protected LedinproContext _ledinproContext;
-        public BaseController(LedinproContext context)
+        protected readonly IHostingEnvironment _env;
+        public BaseController(LedinproContext context, IHostingEnvironment env)
         {
             _ledinproContext = context;
+            _env = env;
         }
 
         /// <summary>

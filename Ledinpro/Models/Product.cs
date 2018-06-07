@@ -14,7 +14,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 产品编码
         /// </summary>
-        [Display(Name = "产品编码")]
+        [Display(Name = "编码")]
         [Required, StringLength(32), MaxLength(32)]
         public string Code { get; set; }
 
@@ -28,7 +28,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 产品类型
         /// </summary>
-        [Display(Name = "产品类型")]
+        [Display(Name = "类型")]
         [Required]
         public ProductType Type { get; set; }
 
@@ -89,7 +89,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 场景Id
         /// </summary>
-        [Display(Name = "场景Id")]
+        [Display(Name = "场景")]
         public int ProductSceneId { get; set; }
 
         /// <summary>

@@ -1,5 +1,5 @@
 ﻿body {
-    width: 100%;
+    /* width: 100%; */
     padding: 0px 0px 0px 0px;
     /* 留出菜单高度 */
     margin: 93px 0px 0px 0px;
@@ -303,11 +303,67 @@ desPadding pre{
     text-align: right;
 }
 
+/*总体介绍*/
+.introductionBackground {
+    background-color: #000000;
+    margin-top: -20px;
+}
 
+/*乳白色*/
+.lightWthieColor {
+    /*background:#f1f0eb*/
+    background-color:#ffffff
+}
 
+.orageColor {
+    color:#f37044;
+}
 
+.lightgrayBackgroundButton {
+    background: lightgray;
+}
 
+.productParameter {
+    background-color: black;
+    color: white;
+    padding-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
+.productParameter p {
+    margin-bottom: 0px;
+}
+
+.desBlueBackground {
+    padding:0;
+}
+
+.desBlueBackground:hover {
+    background-color:#2f91c9;
+}
+
+.lightingProductImg {
+
+}
+
+.displayNone {
+    display: none;
+}
+
+.lightingApplicationImg {
+
+}
+
+.desPaddingMobileP {
+    font-size: 12px;
+}
+
+/*公司页面样式*/
+.blackCompanyBackground{
+    background-color: black;
+    padding-bottom: 30px;
+}
 
 /******************************待删除***********************************/
 /* Carousel */
