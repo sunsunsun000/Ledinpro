@@ -7,7 +7,7 @@
 
 @{
     Layout = "_UserLayout";
-    ViewData["Title"] = "登录";
+    ViewData["Title"] = "login";
 }
 
 <div class="login-box">
@@ -16,7 +16,6 @@
     </div>
     <div class="login-box-body">
         <div asp-validation-summary="All" class="text-danger"></div>
-        <p class="login-box-msg">后台管理系统</p>
         <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="邮箱" asp-for="Email" />
@@ -39,10 +38,10 @@
                     </div>
                 </div>
                 <div class="col-xs-4">
-                    <a asp-action="ForgotPassword"> 忘记密码？</a>
+                    <a asp-action="ForgotPassword"> Forget Password？</a>
                 </div>
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-default btn-block btn-flat">登录</button>
+                    <button type="submit" class="btn btn-default btn-block btn-flat">Login</button>
                 </div>
             </div>
         </form>

@@ -10,6 +10,7 @@ using Ledinpro.Data;
 using Ledinpro.Models;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro.Controllers
 {
@@ -203,7 +204,8 @@ namespace Ledinpro.Controllers
             return _ledinproContext.Products.Any(e => e.Id == id);
         }
 
-        public async Task<IActionResult> ProductDetailInfo(int? id)
+        [Authorize]
+        public IActionResult ProductDetailInfo(int? id)
         {
             if (id == null)
             {

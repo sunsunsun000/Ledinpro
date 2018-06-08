@@ -8,15 +8,15 @@ namespace Ledinpro.Models.AccountViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "请输入邮箱！")]
+        [Required(ErrorMessage = "Please input email！")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "请输入密码！")]
+        [Required(ErrorMessage = "Please input password！")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "记住我？")]
+        [Display(Name = "Remember Me？")]
         public bool RememberMe { get; set; }
     }
 }

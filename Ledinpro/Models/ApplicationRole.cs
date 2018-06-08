@@ -8,6 +8,6 @@ namespace Ledinpro.Models
     /// </summary>
     public class ApplicationRole : IdentityRole<Guid>
     {
-
+    
     }
 }
