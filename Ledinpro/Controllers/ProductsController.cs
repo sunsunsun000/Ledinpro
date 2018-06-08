@@ -205,6 +205,7 @@ namespace Ledinpro.Controllers
         }
 
         [Authorize]
+        [AllowAnonymous]
         public IActionResult ProductDetailInfo(int? id)
         {
             if (id == null)
