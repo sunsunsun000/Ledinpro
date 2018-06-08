@@ -12,7 +12,7 @@ namespace Ledinpro.Data
     {
         public static void Initializer(LedinproContext context)
         {
-            context.Database.EnsureCreated();
+            // context.Database.EnsureCreated();
 
             // // 1.初始化菜单
             // InitialMenu(context);
