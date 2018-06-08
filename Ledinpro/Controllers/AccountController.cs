@@ -364,6 +364,7 @@ namespace Ledinpro.Controllers
                 if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
+                    // 不要暴露用户不存在或者用户没有确认
                     return RedirectToAction(nameof(ForgotPasswordConfirmation));
                 }
 
