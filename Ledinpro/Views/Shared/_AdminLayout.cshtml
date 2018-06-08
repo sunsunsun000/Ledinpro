@@ -71,8 +71,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active">
-                                <a href="index.html"><i class="fa fa-user"></i>用户管理</a>
+                            <li>
+                                <a asp-controller="UserManager" asp-action="index"><i class="fa fa-user"></i>用户管理</a>
+                            </li>
+                            <li>
+                                <a asp-controller="RoleManager" asp-action="index"><i class="fa fa-user"></i>角色管理</a>
                             </li>
                         </ul>
                     </li>

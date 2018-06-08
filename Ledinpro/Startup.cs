@@ -80,12 +80,12 @@ namespace Ledinpro
 
             services.AddMvc(mvcConfig =>
             {
-                // 如果这里配置的话，则默认所有的controller都需要验证才能访问
-                // var policy = new AuthorizationPolicyBuilder()
-                //                 .RequireAuthenticatedUser()
-                //                 .Build();
+                // 配置所有页面都需要登录才能访问，所有的Controller
+                var policy = new AuthorizationPolicyBuilder()
+                                .RequireAuthenticatedUser()
+                                .Build();
 
-                // mvcConfig.Filters.Add(new AuthorizeFilter(policy));
+                mvcConfig.Filters.Add(new AuthorizeFilter(policy));
             });
         }
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Ledinpro.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Ledinpro.Data;
 
 namespace Ledinpro.Controllers
@@ -22,6 +23,7 @@ namespace Ledinpro.Controllers
         /// 网站首页
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -31,6 +33,7 @@ namespace Ledinpro.Controllers
         /// 商业照明首页
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult LightingIndex()
         {
             var carousels = (from c in _ledinproContext.Carousels
@@ -53,6 +56,7 @@ namespace Ledinpro.Controllers
         /// 植物灯首页
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult PlantIndex()
         {
             // 1.获取轮播图数据
@@ -100,6 +104,7 @@ namespace Ledinpro.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Lights()
         {
             ViewBag.isShowButton = true;
@@ -117,6 +122,7 @@ namespace Ledinpro.Controllers
             return View(productList);
         }
 
+        [AllowAnonymous]
         public IActionResult IntellgentControl()
         {
             // 传递导航信息
@@ -132,6 +138,7 @@ namespace Ledinpro.Controllers
             return View(productList);
         }
 
+        [AllowAnonymous]
         public IActionResult Company()
         {
             List<CompanyInfo> companyList = (from p in _ledinproContext.CompanyInfos
@@ -151,6 +158,7 @@ namespace Ledinpro.Controllers
         /// <summary>
         /// 产品文件下载
         /// </summary>
+        [Authorize]
         public ActionResult ProductFileDownload(bool isPlant = false)
         {
             var productList = (from p in _ledinproContext.Products

@@ -1,0 +1,30 @@
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <a asp-action="CreateUserRole" asp-route-id=@(ViewBag.UserId)>增加</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>角色</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in ViewBag.UserRols)
+        {
+            <tr>
+                <td>
+                    @item
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
