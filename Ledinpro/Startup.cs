@@ -41,9 +41,11 @@ namespace Ledinpro
             // services.AddDbContext<LedinproContext>(options => options.UseSqlite("Data Source=Ledinpro.db"));
 
             // 验证服务
-            services.AddIdentity<ApplicationUser, ApplicationRole>()
-                    .AddEntityFrameworkStores<ApplicationDbContext>()
-                    .AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, ApplicationRole>(config => {
+                // 配置用户登录需要邮件验证
+                config.SignIn.RequireConfirmedEmail = true;
+            }).AddEntityFrameworkStores<ApplicationDbContext>()
+              .AddDefaultTokenProviders();
 
             // 配置验证信息
             services.Configure<IdentityOptions>(options =>
@@ -87,6 +89,8 @@ namespace Ledinpro
 
                 mvcConfig.Filters.Add(new AuthorizeFilter(policy));
             });
+
+            services.Configure<AuthMessageSenderOptions>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
