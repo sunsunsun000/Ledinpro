@@ -34,6 +34,9 @@
     </head>
 
     <body>
+        <div style="position: fixed;right: 5px;top: 5px;color: black;z-index: 10000000">
+            @await Html.PartialAsync("_LoginPartial")
+        </div>
         <!-- 导航栏 -->
         <nav class="navbar navbar-default navbar-fixed-top homeNav">
             <div class="container">
@@ -53,7 +56,7 @@
                 <!-- 菜单项 -->
                 <div id="main-navbar-collapse" class="collapse navbar-collapse">
                     <!-- 靠右菜单 -->
-                    <div class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
                         @foreach (Menu item in menus)
                         {
                             if (item.Title.Equals("Contact_Us"))
@@ -75,7 +78,7 @@
                                 </li>
                             }
                         }
-                    </div>
+                    </ul>
                 </div>
             </div>
 

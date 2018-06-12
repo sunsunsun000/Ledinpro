@@ -43,7 +43,7 @@ namespace Ledinpro
             // 验证服务
             services.AddIdentity<ApplicationUser, ApplicationRole>(config => {
                 // 配置用户登录需要邮件验证
-                config.SignIn.RequireConfirmedEmail = true;
+                // config.SignIn.RequireConfirmedEmail = true;
             }).AddEntityFrameworkStores<ApplicationDbContext>()
               .AddDefaultTokenProviders();
 

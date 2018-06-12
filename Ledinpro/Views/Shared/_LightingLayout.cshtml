@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body class="lightingBackgoundColor">
+    <div style="position: fixed;right: 5px;top: 5px;color: black;z-index: 10000000">
+        @await Html.PartialAsync("_LoginPartial")
+    </div>
     <nav class="navbar navbar-inverse navbar-fixed-top lightingNav">
         <div class="container">
             <div class="navbar-header">
