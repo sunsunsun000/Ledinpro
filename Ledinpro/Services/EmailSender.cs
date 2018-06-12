@@ -16,11 +16,6 @@ namespace Ledinpro.Services
         public EmailSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
         {
             Options = optionsAccessor.Value;
-            Options = new AuthMessageSenderOptions()
-            {
-                SendGridUser = "ledinpro",
-                SendGridKey = "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"
-            };
         }
 
         public Task SendEmailAsync(string email, string subject, string message)
