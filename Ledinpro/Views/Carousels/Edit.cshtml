@@ -5,74 +5,101 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<div class="leftTopTitle">
+    <p>编辑轮播图</p>
+</div>
 
-<h4>Carousel</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+        <form method="POST" enctype="multipart/form-data" asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="Name" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-lg-2 fieldTitle">
+                    <label asp-for="Title" class="control-label"></label>
+                </div>
+                <div class="col-lg-10">
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-lg-2 fieldTitle">
+                    <label asp-for="Description" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="PicturePath" class="control-label"></label>
-                <input asp-for="PicturePath" class="form-control" />
-                <span asp-validation-for="PicturePath" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="PicturePath" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <img src="@Model.PicturePath" class="imgThirtySize" />
+                    <input type="hidden" asp-for="PicturePath" class="form-control" />
+                    <input type="file" id="PicturePath" name="picturePath" class="form-control" />
+                    <span asp-validation-for="PicturePath" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="MobilePicturePath" class="control-label"></label>
-                <input asp-for="MobilePicturePath" class="form-control" />
-                <span asp-validation-for="MobilePicturePath" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="MobilePicturePath" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <img src="@Model.MobilePicturePath" class="imgThirtySize" />
+                    <input type="hidden" asp-for="MobilePicturePath" />
+                    <input type="file" id="MobilePicturePath" name="mobilePicturePath" class="form-control" />
+                    <span asp-validation-for="MobilePicturePath" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SortNumber" class="control-label"></label>
-                <input asp-for="SortNumber" class="form-control" />
-                <span asp-validation-for="SortNumber" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="SortNumber" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <input asp-for="SortNumber" class="form-control" />
+                    <span asp-validation-for="SortNumber" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
-                <span asp-validation-for="Type" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="Type" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <select asp-for="Type" class="form-control" asp-items="@Html.GetEnumSelectList(typeof(ProductType))"></select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="RelativeProductId" class="control-label"></label>
-                <input asp-for="RelativeProductId" class="form-control" />
-                <span asp-validation-for="RelativeProductId" class="text-danger"></span>
+            <div class="form-group row">
+                <div class="col-md-2 fieldTitle">
+                    <label asp-for="RelativeProductId" class="control-label"></label>
+                </div>
+                <div class="col-md-10">
+                    <select asp-for="RelativeProductId" class="form-control" asp-items="@(ViewBag.ProductList)"></select>
+                    <span asp-validation-for="RelativeProductId" class="text-danger"></span>
+                </div>
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="CreateUserName" class="control-label"></label>
-                <input asp-for="CreateUserName" class="form-control" />
-                <span asp-validation-for="CreateUserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateDateTime" class="control-label"></label>
-                <input asp-for="CreateDateTime" class="form-control" />
-                <span asp-validation-for="CreateDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger" style="float: right">放弃</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

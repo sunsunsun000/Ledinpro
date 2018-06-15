@@ -18,7 +18,6 @@ namespace Ledinpro.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
-        private static Guid currentId;
 
         public UserManagerController(ApplicationDbContext context, 
         UserManager<ApplicationUser> userManager, 
@@ -167,7 +166,7 @@ namespace Ledinpro.Controllers
             var userRoles = await _userManager.GetRolesAsync(user);
 
             ViewBag.UserRols = userRoles;
-            ViewBag.UserId = id;
+            ViewBag.Id = id;
             return View();
         }
 
@@ -175,30 +174,64 @@ namespace Ledinpro.Controllers
         {
             // 角色列表
             var roles = await _roleManager.Roles.Where(r => r.Id != id).ToListAsync();
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            var userRoles = await _userManager.GetRolesAsync(user);
+            foreach(var roleName in userRoles)
+            {
+                var role = await _roleManager.FindByNameAsync(roleName);
+                roles.Remove(role);
+            }
+
             var rolesList = new SelectList(roles);
 
             ViewBag.RolesList = rolesList;
-            currentId = id;
+            ViewBag.Id = id;
 
             return View();
         }
 
-        public async Task<IActionResult> AddUserRole(string roleName)
+        public async Task<IActionResult> AddUserRole(string roleName, Guid id)
         {
-            // 把选择的角色添加到用户中
-            if (currentId == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
-            var user = await _userManager.FindByIdAsync(currentId.ToString());
+            var user = await _userManager.FindByIdAsync(id.ToString());
             if (user == null)
             {
                 return NotFound();
             }
+
             await _userManager.AddToRoleAsync(user, roleName);
 
-            return View("Index");
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            ViewBag.UserRols = userRoles;
+            ViewBag.Id = id;
+            return View("SetUserRole");
+        }
+
+        public async Task<IActionResult> RemoveUserRole(string roleName, Guid id)
+        {
+                        if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            await _userManager.RemoveFromRoleAsync(user, roleName);
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            ViewBag.UserRols = userRoles;
+            ViewBag.Id = id;
+            return View("SetUserRole");
         }
     }
 }

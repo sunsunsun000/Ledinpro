@@ -34,9 +34,6 @@
     </head>
 
     <body>
-        <div style="position: fixed;right: 5px;top: 5px;color: black;z-index: 10000000">
-            @await Html.PartialAsync("_LoginPartial")
-        </div>
         <!-- 导航栏 -->
         <nav class="navbar navbar-default navbar-fixed-top homeNav">
             <div class="container">
@@ -78,6 +75,8 @@
                                 </li>
                             }
                         }
+
+                        @await Html.PartialAsync("_LoginPartial")
                     </ul>
                 </div>
             </div>

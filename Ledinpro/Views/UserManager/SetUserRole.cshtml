@@ -3,7 +3,7 @@
 }
 
 <div class="leftTopTitle">
-    <a asp-action="CreateUserRole" asp-route-id=@(ViewBag.UserId)>增加</a>
+    <a asp-action="CreateUserRole" asp-route-id=@(ViewBag.Id)>增加</a>
 </div>
 
 <table class="table table-bordered">
@@ -22,7 +22,7 @@
                     @item
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+                    <a asp-controller="UserManager" asp-action="RemoveUserRole" asp-route-roleName="@item" asp-route-id="@ViewBag.Id">删除</a>
                 </td>
             </tr>
         }

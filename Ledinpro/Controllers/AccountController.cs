@@ -78,7 +78,7 @@ namespace Ledinpro.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "登录失败！");
+                    ModelState.AddModelError(string.Empty, "Login failed!");
                     return View(model);
                 }
             }

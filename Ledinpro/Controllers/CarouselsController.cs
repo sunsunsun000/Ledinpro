@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ledinpro.Data;
 using Ledinpro.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Ledinpro.Controllers
 {
-    public class CarouselsController : Controller
+    public class CarouselsController : BaseController
     {
-        private readonly LedinproContext _context;
-
-        public CarouselsController(LedinproContext context)
+        public CarouselsController(LedinproContext context, IHostingEnvironment env) : base(context, env)
         {
-            _context = context;
         }
 
         // GET: Carousels
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Carousels.ToListAsync());
+            return View(await _ledinproContext.Carousels.ToListAsync());
         }
 
         // GET: Carousels/Details/5
@@ -33,7 +33,7 @@ namespace Ledinpro.Controllers
                 return NotFound();
             }
 
-            var carousel = await _context.Carousels
+            var carousel = await _ledinproContext.Carousels
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (carousel == null)
             {
@@ -46,6 +46,8 @@ namespace Ledinpro.Controllers
         // GET: Carousels/Create
         public IActionResult Create()
         {
+            GenerateProductList();
+
             return View();
         }
 
@@ -54,14 +56,20 @@ namespace Ledinpro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Title,Description,PicturePath,MobilePicturePath,SortNumber,Type,RelativeProductId,Id,CreateUserName,CreateDateTime")] Carousel carousel)
+        public async Task<IActionResult> Create([Bind("Name,Title,Description,SortNumber,Type,RelativeProductId,Id")] Carousel carousel, 
+                                                IFormFile picturePath, IFormFile mobilePicturePath)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(carousel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var files = new List<IFormFile>() { picturePath, mobilePicturePath };
+                if (await UploadFiles(carousel, files) == true)
+                {
+                    _ledinproContext.Add(carousel);
+                    await _ledinproContext.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
             }
+            GenerateProductList();
             return View(carousel);
         }
 
@@ -73,11 +81,14 @@ namespace Ledinpro.Controllers
                 return NotFound();
             }
 
-            var carousel = await _context.Carousels.SingleOrDefaultAsync(m => m.Id == id);
+            var carousel = await _ledinproContext.Carousels.SingleOrDefaultAsync(m => m.Id == id);
             if (carousel == null)
             {
                 return NotFound();
             }
+
+            GenerateProductList();
+
             return View(carousel);
         }
 
@@ -86,7 +97,8 @@ namespace Ledinpro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,Title,Description,PicturePath,MobilePicturePath,SortNumber,Type,RelativeProductId,Id,CreateUserName,CreateDateTime")] Carousel carousel)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Title,Description,PicturePath,MobilePicturePath,SortNumber,Type,RelativeProductId,Id")] Carousel carousel,
+                                              IFormFile picturePath, IFormFile mobilePicturePath)
         {
             if (id != carousel.Id)
             {
@@ -95,10 +107,16 @@ namespace Ledinpro.Controllers
 
             if (ModelState.IsValid)
             {
+                var files = new List<IFormFile>() { picturePath, mobilePicturePath };
+                if (await UploadFiles(carousel, files) == false)
+                {
+                    return View(carousel);
+                }
+
                 try
                 {
-                    _context.Update(carousel);
-                    await _context.SaveChangesAsync();
+                    _ledinproContext.Update(carousel);
+                    await _ledinproContext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -124,7 +142,7 @@ namespace Ledinpro.Controllers
                 return NotFound();
             }
 
-            var carousel = await _context.Carousels
+            var carousel = await _ledinproContext.Carousels
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (carousel == null)
             {
@@ -139,15 +157,77 @@ namespace Ledinpro.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var carousel = await _context.Carousels.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Carousels.Remove(carousel);
-            await _context.SaveChangesAsync();
+            var carousel = await _ledinproContext.Carousels.SingleOrDefaultAsync(m => m.Id == id);
+            _ledinproContext.Carousels.Remove(carousel);
+            await _ledinproContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CarouselExists(int id)
         {
-            return _context.Carousels.Any(e => e.Id == id);
+            return _ledinproContext.Carousels.Any(e => e.Id == id);
+        }
+
+        private void GenerateProductList()
+        {
+            var productList = (from p in _ledinproContext.Products
+                              select p).ToList();
+            productList.Insert(0, new Product(){ Id = 0, Name = "无链接"});
+
+            var productSelectList = new SelectList(productList,"Id","Name");
+            ViewBag.ProductList = productSelectList;
+        }
+
+        private async Task<bool> UploadFiles(Carousel carousel, List<IFormFile> files)
+        {
+            int index = 0;
+            foreach (var f in files)
+            {
+                // 如果没有选择文件，继续执行循环
+                if (f == null)
+                {
+                    index++;
+                    continue;
+                }
+
+                string filePath = "upload/" + carousel.Id.ToString();
+                string fileName = filePath  + "/" + f.FileName;
+                string fullFilePath = Path.Combine(_env.WebRootPath, fileName);
+                string fullFilePathDir = Path.Combine(_env.WebRootPath, filePath);
+                try
+                {
+                    if (index == 0)
+                    {
+                        carousel.PicturePath = "/" + fileName;
+                    }
+                    else if (index == 1)
+                    {
+                        carousel.MobilePicturePath = "/" + fileName;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                    if (Directory.Exists(fullFilePathDir) == false)
+                    {
+                        Directory.CreateDirectory(fullFilePathDir);
+                    }
+
+                    using (var stream = new FileStream(fullFilePath, FileMode.Create, FileAccess.ReadWrite))
+                    {
+                        await f.CopyToAsync(stream);
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+
+                index++;
+            }
+
+            return true;
         }
     }
 }

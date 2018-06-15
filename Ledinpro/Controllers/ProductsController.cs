@@ -269,39 +269,39 @@ namespace Ledinpro.Controllers
                 {
                     if (index == 0)
                     {
-                        product.ScenePicturePath = fileName;
+                        product.ScenePicturePath =  "/" + fileName;
                     }
                     else if (index == 1)
                     {
-                        product.PicturePath = fileName;
+                        product.PicturePath = "/" + fileName;
                     }
                     else if (index == 2)
                     {
-                        product.MobilePicturePath = fileName;
+                        product.MobilePicturePath = "/" + fileName;
                     }
                     else if (index == 3)
                     {
-                        product.BackgroundPicturePath = fileName;
+                        product.BackgroundPicturePath = "/" + fileName;
                     }
                     else if (index == 4)
                     {
-                        product.Spectrum = fileName;
+                        product.Spectrum = "/" + fileName;
                     }
                     else if (index == 5)
                     {
-                        product.ProductGuide = fileName;
+                        product.ProductGuide = "/" + fileName;
                     }
                     else if (index == 6)
                     {
-                        product.ProductInstallationGuide = fileName;
+                        product.ProductInstallationGuide = "/" + fileName;
                     }
                     else if (index == 7)
                     {
-                        product.ProductDatasheet = fileName;
+                        product.ProductDatasheet = "/" + fileName;
                     }
                     else if (index == 8)
                     {
-                        product.ProductIES = fileName;
+                        product.ProductIES = "/" + fileName;
                     }
                     else
                     {
