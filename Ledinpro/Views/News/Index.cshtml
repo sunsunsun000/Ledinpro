@@ -1,0 +1,106 @@
+@model IEnumerable<Ledinpro.Models.News>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <a asp-action="Create">新建</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SubTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PublishOrNot)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sortnumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Picture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MobilePicture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BackgroundPicture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MobileBackgroundPicture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Thumbnail)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishOrNot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sortnumber)
+            </td>
+            <td>
+                <img class="imgThirtySize" src="@item.Picture"/>
+            </td>
+            <td>
+                <img class="imgThirtySize" src="@item.MobilePicture"/>
+            </td>
+            <td>
+                <img class="imgThirtySize" src="@item.BackgroundPicture"/>
+            </td>
+            <td>
+                <img class="imgThirtySize" src="@item.MobileBackgroundPicture"/>
+            </td>
+            <td>
+                <img class="imgThirtySize" src="@item.Thumbnail"/>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">编辑</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">删除</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,101 @@
+@model Ledinpro.Models.News
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <p>删除新闻</p>
+</div>
+
+<h3 style="color: black">确定删除轮新闻?</h3>
+<div class="container">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublishTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PublishOrNot)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PublishOrNot)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sortnumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sortnumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+        <dd>
+            <img src="@Model.Picture" class="imgThirtySize" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePicture)
+        </dt>
+        <dd>
+            <img src="@Model.MobilePicture" class="imgThirtySize" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BackgroundPicture)
+        </dt>
+        <dd>
+            <img src="@Model.BackgroundPicture" class="imgThirtySize" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileBackgroundPicture)
+        </dt>
+        <dd>
+            <img src="@Model.MobileBackgroundPicture" class="imgThirtySize" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumbnail)
+        </dt>
+        <dd>
+            <img src="@(Model.Thumbnail)" class="imgThirtySize" />
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="删除" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-danger" style="float: right">放弃删除</a>
+    </form>
+</div>

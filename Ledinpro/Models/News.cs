@@ -42,7 +42,7 @@ namespace Ledinpro.Models
         /// <summary>
         /// 产品类型
         /// </summary>
-        [Display(Name = "发布时间")]
+        [Display(Name = "新闻类型")]
         public ProductType? ProductType { get; set; }
 
         /// <summary>

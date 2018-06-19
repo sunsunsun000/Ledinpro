@@ -1,0 +1,158 @@
+@model Ledinpro.Models.News
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <p>编辑</p>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-8">
+        <form method="POST" enctype="multipart/form-data" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Title" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="SubTitle" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="SubTitle" class="form-control" />
+                    <span asp-validation-for="SubTitle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Content" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Content" class="form-control" />
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Author" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="ProductType" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="ProductType" class="form-control" />
+                    <span asp-validation-for="ProductType" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="PublishTime" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="PublishTime" class="form-control" />
+                    <span asp-validation-for="PublishTime" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="PublishOrNot" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <select asp-for="PublishOrNot" class="form-control" asp-items="@(ViewBag.OrNotList)"></select>
+                    <span asp-validation-for="PublishOrNot" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Sortnumber" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Sortnumber" class="form-control" />
+                    <span asp-validation-for="Sortnumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Picture" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <img src="@Model.Picture" class="imgThirtySize" />
+                    <input type="hidden" asp-for="Picture" class="form-control" />
+                    <input type="file" name="picture" class="form-control" />
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="MobilePicture" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <img src="@Model.MobilePicture" class="imgThirtySize" />
+                    <input type="hidden" asp-for="MobilePicture" />
+                    <input type="file" name="mobilePicture" class="form-control" />
+                    <span asp-validation-for="MobilePicture" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="BackgroundPicture" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <img src="@Model.BackgroundPicture" class="imgThirtySize" />
+                    <input type="hidden" asp-for="BackgroundPicture" />
+                    <input type="file" name="backgroundPicture" class="form-control" />
+                    <span asp-validation-for="BackgroundPicture" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="MobileBackgroundPicture" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <img src="@Model.MobileBackgroundPicture" class="imgThirtySize" />
+                    <input type="hidden" asp-for="MobileBackgroundPicture" />
+                    <input type="file" name="mobileBackgroundPicture" class="form-control" />
+                    <span asp-validation-for="MobileBackgroundPicture" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Thumbnail" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <img src="@Model.Thumbnail" class="imgThirtySize" />
+                    <input type="hidden" asp-for="Thumbnail" />
+                    <input type="file" name="thumbnail" class="form-control" />
+                    <span asp-validation-for="Thumbnail" class="text-danger"></span>
+                </div>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a class="btn btn-danger" style="float: right" asp-action="Index">放弃</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

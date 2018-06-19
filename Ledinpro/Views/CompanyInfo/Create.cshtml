@@ -1,0 +1,118 @@
+@model Ledinpro.Models.CompanyInfo
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="leftTopTitle">
+    <p>新建公司信息</p>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+        <form method="POST" enctype="multipart/form-data" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Name" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Address" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Phone" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Email" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="Description" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="BackgroundImage" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input type="file" id="BackgroundImage" name="backgroundImage" class="form-control" />
+                    <span asp-validation-for="BackgroundImage" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="MobileBackgroundImage" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input type="file" id="MobileBackgroundImage" name="mobileBackgroundImage" class="form-control" />
+                    <span asp-validation-for="MobileBackgroundImage" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="FreeOne" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input type="file" id="FreeOne" name="freeOne" class="form-control" />
+                    <span asp-validation-for="FreeOne" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="FreeTwo" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input type="file" id="FreeTwo" name="freeTwo" class="form-control" />
+                    <span asp-validation-for="FreeTwo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2 col-lg-2 fieldTitle">
+                    <label asp-for="FreeThree" class="control-label"></label>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <input type="file" id="FreeThree" name="freeThree" class="form-control" />
+                    <span asp-validation-for="FreeThree" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-danger" style="float: right">放弃保存</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -6,7 +6,7 @@
 
 <div id="typeProduct">
     <!-- 大屏幕部分 -->
-    <div class="hidden-xs hidden-sm visible-md visible-lg">
+    <div class="hidden-xs hidden-sm visible-md visible-lg container-fluid">
         @{
             int index = 0;
             int firstProductSceneId = 0;
@@ -245,7 +245,7 @@
     </div>
 
     <!-- 小屏幕部分 -->
-    <div class="visible-xs visible-sm hidden-md hidden-lg">
+    <div class="visible-xs visible-sm hidden-md hidden-lg container-fluid">
         @{
             int indexSmall = 10;
             if (ProductList == null)
