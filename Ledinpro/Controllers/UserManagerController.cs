@@ -12,7 +12,7 @@ using Ledinpro.Models;
 
 namespace Ledinpro.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Roles = "内部员工,管理员")]
     public class UserManagerController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -10,9 +10,11 @@ using Ledinpro.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro.Controllers
 {
+    [Authorize(Roles = "内部员工,管理员")]
     public class NewsController : BaseController
     {
         public NewsController(LedinproContext context, IHostingEnvironment env) : base(context, env)

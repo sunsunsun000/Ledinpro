@@ -29,7 +29,6 @@ namespace Ledinpro
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("出现异常");
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(e, "An error occurred while seeding the database.");
                 }

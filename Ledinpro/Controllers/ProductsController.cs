@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro.Controllers
 {
+    [Authorize(Roles = "内部员工,管理员")]
     public class ProductsController : BaseController
     {
         public ProductsController(LedinproContext context, IHostingEnvironment env) : base(context, env)

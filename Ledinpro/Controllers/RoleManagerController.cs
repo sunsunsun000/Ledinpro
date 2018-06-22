@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Ledinpro.Data;
 using Ledinpro.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro.Controllers
 {
+    [Authorize(Roles = "管理员")]
     public class RoleManagerController : Controller
     {
         private readonly ApplicationDbContext _context;

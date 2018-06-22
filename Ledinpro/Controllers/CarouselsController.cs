@@ -10,9 +10,11 @@ using Ledinpro.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ledinpro.Controllers
 {
+    [Authorize(Roles = "内部员工,管理员")]
     public class CarouselsController : BaseController
     {
         public CarouselsController(LedinproContext context, IHostingEnvironment env) : base(context, env)
