@@ -120,15 +120,18 @@
         </div>
     </div>
 
-    <!-- 场景对应产品部分 -->
-    @await Html.PartialAsync("_ProductPartial")
+<!-- 场景对应产品部分 -->
+@await Html.PartialAsync("_ProductPartial")
 
-    <!-- 公司介绍部分 -->
-    @if (CompanyInfo != null)
-    {
-        <div id="companyIntroduce" class="">
-            <img class="img-responsive hidden-sm hidden-xs visible-md visible-lg" src=@(CompanyInfo.BackgroundImage) style="width:100%" />
-            <img class="img-responsive visible-sm visible-xs hidden-md hidden-lg" src=@(CompanyInfo.MobileBackgroundImage) style="width:100%" />
-        </div>
-    }
-</div>
+<!-- 公司介绍部分 -->
+@if (CompanyInfo != null)
+{
+    <div id="companyIntroduce" class="">
+        <img class="img-responsive hidden-sm hidden-xs visible-md visible-lg" src=@(CompanyInfo.BackgroundImage) style="width:100%" />
+        <img class="img-responsive visible-sm visible-xs hidden-md hidden-lg" src=@(CompanyInfo.MobileBackgroundImage) style="width:100%" />
+    </div>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -92,6 +92,7 @@
         <!--底部区域-->
         <footer id="contact">
             <div style="background-color: #30ac66">
+                @Html.Partial("_ContactPartial")
                 @Html.Partial("_EmailViewPartial")
             </div>
             <div style="background-color: #15733E;padding-top: 20px;text-align: center">
@@ -120,5 +121,7 @@
                 $(this).tab('show')
             })
         </script>
+
+        @RenderSection("Scripts", required: false)
     </body>
 </html>

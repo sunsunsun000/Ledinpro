@@ -169,6 +169,27 @@ namespace Ledinpro.Controllers
             return View(productList);
         }
 
+        /// <summary>
+        /// 产品文件下载
+        /// </summary>
+        /// <param name="name">姓名</param>
+        /// <param name="email">邮箱</param>
+        /// <param name="message">消息</param>
+        [AllowAnonymous]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveCustomerMessage([Bind("Name,Email,Message")] CustomerContactInfo customerContactInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                customerContactInfo.CreateDateTime = DateTime.Now;
+                _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
+                await _ledinproContext.SaveChangesAsync();
+            }
+
+            return this.Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", null);
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

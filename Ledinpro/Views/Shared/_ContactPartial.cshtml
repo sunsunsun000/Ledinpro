@@ -1,0 +1,81 @@
+@using Ledinpro.Models
+@model Ledinpro.Models.CustomerContactInfo
+@using Ledinpro.Data
+
+@inject LedinproContext Context
+@{
+    var companyInfos = (from c in Context.CompanyInfos
+                        select c).ToList();
+
+    var salesManContacts = (from c in Context.SaleContactInfos
+                            where c.IsShow == true
+                            select c).ToList();
+}
+
+<div class="container">
+    <div class="row" style="color: white">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div>
+                <h4>Address:</h4>
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> 河南省郑州市高新区青杨街与枫林路交叉口</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            @if (salesManContacts.Count() > 0)
+            {
+                <h4>Contact Info:</h4>
+            }
+
+            @foreach (var item in salesManContacts)
+            {
+                if (item.IsShow == false)
+                {
+                    continue;
+                }
+
+                <span class="glyphicon glyphicon-user"></span> @item.Name
+                <br />
+                <span class="glyphicon glyphicon-phone-alt"></span> @item.Phone
+                <br />
+                if (item.CellPhone != null)
+                {
+                    <span class="glyphicon glyphicon-earphone"></span> @item.CellPhone
+                    <br />
+                }
+                if (item.Email != null)
+                {
+                    <span class="glyphicon glyphicon-envelope"></span> @item.Email
+                    <br />
+                }
+                if (item.Skype != null)
+                {
+                    <span class="glyphicon glyphicon-comment"></span> @item.Skype
+                    <br />
+                }
+
+                <br />
+            }
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <h4>Contact form:</h4>
+            <form method="POST" asp-controller="home" asp-action="SaveCustomerMessage">
+                <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+                <div class="form-group">
+                    <input type="text" asp-for="Name" class="form-control" style="width: 100%" placeholder="name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" asp-for="Email" class="form-control" style="width: 100%;margin-top: 5px" placeholder="email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <textarea asp-for="Message" style="width: 100%;margin-top: 5px" rows="6" class="form-control" placeholder="message"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Send" style="width: 100%;margin-top: 5px"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

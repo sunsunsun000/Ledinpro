@@ -30,6 +30,7 @@ namespace Ledinpro.Data
         public DbSet<ProductScene> ProductScenes { get; set; }
         public DbSet<SaleContactInfo> SaleContactInfos { get; set; }
         public DbSet<SubProduct> SubProducts { get; set; }
+        public DbSet<CustomerContactInfo> CustomerContactInfos { get; set; }
 
         /// <summary>
         /// 映射实体到数据库表名称
@@ -51,6 +52,7 @@ namespace Ledinpro.Data
             modelBuilder.Entity<ProductScene>().ToTable("ProductScene");
             modelBuilder.Entity<SaleContactInfo>().ToTable("SaleContactInfo");
             modelBuilder.Entity<SubProduct>().ToTable("SubProduct");
+            modelBuilder.Entity<CustomerContactInfo>().ToTable("CustomerContactInfo");
 
             // 配置场景和产品多对多关系
             modelBuilder.Entity<ProductSceneProduct>()

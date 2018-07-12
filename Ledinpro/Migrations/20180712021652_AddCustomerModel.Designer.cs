@@ -12,9 +12,10 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    partial class LedinproContextModelSnapshot : ModelSnapshot
+    [Migration("20180712021652_AddCustomerModel")]
+    partial class AddCustomerModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,16 +113,13 @@ namespace Ledinpro.Migrations
                         .HasMaxLength(16);
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.Property<string>("Free");
 
-                    b.Property<string>("Message")
-                        .IsRequired();
+                    b.Property<string>("Message");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(32);
 
                     b.HasKey("Id");

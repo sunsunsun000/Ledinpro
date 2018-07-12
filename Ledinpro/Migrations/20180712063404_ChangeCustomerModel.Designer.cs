@@ -12,9 +12,10 @@ using System;
 namespace Ledinpro.Migrations
 {
     [DbContext(typeof(LedinproContext))]
-    partial class LedinproContextModelSnapshot : ModelSnapshot
+    [Migration("20180712063404_ChangeCustomerModel")]
+    partial class ChangeCustomerModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

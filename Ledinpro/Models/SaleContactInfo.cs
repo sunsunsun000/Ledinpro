@@ -32,9 +32,15 @@ namespace Ledinpro.Models
         public string Phone { get; set; }
 
         /// <summary>
+        /// 手机
+        /// </summary>
+        [MaxLength(64)]
+        [Display(Name = "手机")]
+        public string CellPhone { get; set; }
+
+        /// <summary>
         /// 邮箱
         /// </summary>
-        [Required(ErrorMessage = "请输入邮箱！")]
         [MaxLength(64)]
         [Display(Name = "邮箱")]
         public string Email { get; set; }
@@ -42,7 +48,6 @@ namespace Ledinpro.Models
         /// <summary>
         /// Skype
         /// </summary>
-        [Required(ErrorMessage = "请输入Skype！")]
         [MaxLength(64)]
         [Display(Name = "Skype")]
         public string Skype { get; set; }
