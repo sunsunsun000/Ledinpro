@@ -18,45 +18,53 @@
             <div>
                 <h4>Address:</h4>
                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> 河南省郑州市高新区青杨街与枫林路交叉口</span>
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"> info@ledinpro.com</span>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            @if (salesManContacts.Count() > 0)
-            {
-                <h4>Contact Info:</h4>
-            }
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="row">
+                
+                    @if (salesManContacts.Count() > 0)
+                    {
+                        <h4>Contact Info:</h4>
+                    }
 
-            @foreach (var item in salesManContacts)
-            {
-                if (item.IsShow == false)
-                {
-                    continue;
-                }
+                    @foreach (var item in salesManContacts)
+                    {
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            @{
+                                if (item.IsShow == false)
+                                {
+                                    continue;
+                                }
 
-                <span class="glyphicon glyphicon-user"></span> @item.Name
-                <br />
-                <span class="glyphicon glyphicon-phone-alt"></span> @item.Phone
-                <br />
-                if (item.CellPhone != null)
-                {
-                    <span class="glyphicon glyphicon-earphone"></span> @item.CellPhone
-                    <br />
-                }
-                if (item.Email != null)
-                {
-                    <span class="glyphicon glyphicon-envelope"></span> @item.Email
-                    <br />
-                }
-                if (item.Skype != null)
-                {
-                    <span class="glyphicon glyphicon-comment"></span> @item.Skype
-                    <br />
-                }
+                                <span class="glyphicon glyphicon-user"></span> @item.Name
+                                <br />
+                                <span class="glyphicon glyphicon-phone-alt"></span> @item.Phone
+                                <br />
+                                if (item.CellPhone != null)
+                                {
+                                    <span class="glyphicon glyphicon-earphone"></span> @item.CellPhone
+                                    <br />
+                                }
+                                if (item.Email != null)
+                                {
+                                    <span class="glyphicon glyphicon-envelope"></span> @item.Email
+                                    <br />
+                                }
+                                if (item.Skype != null)
+                                {
+                                    <span class="glyphicon glyphicon-comment"></span> @item.Skype
+                                    <br />
+                                }
 
-                <br />
-            }
+                                <br />
+                            }
+                        </div>
+                    }
+            </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
             <h4>Contact form:</h4>
             <form method="POST" asp-controller="home" asp-action="SaveCustomerMessage">
                 <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
@@ -72,10 +80,11 @@
                     <textarea asp-for="Message" style="width: 100%;margin-top: 5px" rows="6" class="form-control" placeholder="message"></textarea>
                     <span asp-validation-for="Message" class="text-danger"></span>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LefzWMUAAAAAJMNLI6arAVzs_Z7nOIyk9bF8nDW"></div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Send" style="width: 100%;margin-top: 5px"/>
                 </div>
             </form>
-        </div>
+        </div> -->
     </div>
 </div>

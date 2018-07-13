@@ -88,7 +88,7 @@ namespace Ledinpro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Name,NickName,Phone,CellPhone,Email,Skype,PicturePath,IsShow,Id,CreateUserName,CreateDateTime")] SaleContactInfo saleContactInfo)
+        public async Task<IActionResult> Edit(int id, [Bind("Name,Phone,CellPhone,Email,Skype,IsShow,Id")] SaleContactInfo saleContactInfo)
         {
             if (id != saleContactInfo.Id)
             {

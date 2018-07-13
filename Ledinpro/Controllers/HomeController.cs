@@ -9,14 +9,21 @@ using Ledinpro.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Ledinpro.Data;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore;
+using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace Ledinpro.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(LedinproContext context, IHostingEnvironment env) : base(context, env)
+        private IConfiguration Configuration { get; }
+        public HomeController(LedinproContext context, IHostingEnvironment env, IConfiguration configuration) : base(context, env)
         {
-
+            Configuration = configuration;
         }
 
         /// <summary>
@@ -182,12 +189,56 @@ namespace Ledinpro.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
+                                    Configuration.GetSection("GoogleReCaptcha:secret").Value))
+                {
+                    ViewBag.ReCaptchaResult = "失败";
+                    return View("SendCustomerMessage");
+                }
+                // 这里不能过滤，信息可能不同
                 customerContactInfo.CreateDateTime = DateTime.Now;
                 _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
                 await _ledinproContext.SaveChangesAsync();
             }
 
-            return this.Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", null);
+            // return this.Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", null);
+            ViewBag.ReCaptchaResult = "成功";
+            return View("SendCustomerMessage");
+        }
+
+        public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret) {
+            HttpClient httpClient = new HttpClient();
+            var res = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={gRecaptchaResponse}").Result;
+            if (res.StatusCode != HttpStatusCode.OK)
+            {
+                return false;
+            }
+
+            string JSONres = res.Content.ReadAsStringAsync().Result;
+            dynamic JSONdata = JObject.Parse(JSONres);
+            if (JSONdata.success != "true")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ExistCustomerEmail(string email)
+        {
+            try {
+                var c = _ledinproContext.CustomerContactInfos.Single(cus => cus.Email.Equals(email));
+                if (c == null)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            catch (ArgumentNullException ex)
+            {
+                return false;
+            }
         }
 
         public IActionResult Error()

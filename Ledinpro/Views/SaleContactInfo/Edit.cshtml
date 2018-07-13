@@ -1,26 +1,24 @@
 @model Ledinpro.Models.SaleContactInfo
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<div class="leftTopTitle">
+    <p>编辑</p>
+</div>
 
-<h4>SaleContactInfo</h4>
-<hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NickName" class="control-label"></label>
-                <input asp-for="NickName" class="form-control" />
-                <span asp-validation-for="NickName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
@@ -43,11 +41,6 @@
                 <span asp-validation-for="Skype" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PicturePath" class="control-label"></label>
-                <input asp-for="PicturePath" class="form-control" />
-                <span asp-validation-for="PicturePath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="IsShow" /> @Html.DisplayNameFor(model => model.IsShow)
@@ -56,24 +49,14 @@
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="CreateUserName" class="control-label"></label>
-                <input asp-for="CreateUserName" class="form-control" />
-                <span asp-validation-for="CreateUserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreateDateTime" class="control-label"></label>
-                <input asp-for="CreateDateTime" class="form-control" />
-                <span asp-validation-for="CreateDateTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="保存" class="btn btn-primary" />
+                <a class="btn btn-danger" asp-action="Index">放弃</a>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="col-md-4">
+    </div>
 </div>
 
 @section Scripts {
