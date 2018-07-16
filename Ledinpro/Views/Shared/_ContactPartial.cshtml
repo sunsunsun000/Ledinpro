@@ -1,5 +1,4 @@
 @using Ledinpro.Models
-@model Ledinpro.Models.CustomerContactInfo
 @using Ledinpro.Data
 
 @inject LedinproContext Context
@@ -15,16 +14,16 @@
 <br />
 <div class="container">
     <div class="row" style="color: white">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div>
                 <h4>Address:</h4>
                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"> 河南省郑州市高新区青杨街与枫林路交叉口</span>
+                <br >
                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"> info@ledinpro.com</span>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="row">
-                
                     @if (salesManContacts.Count() > 0)
                     {
                         <h4>Contact Info:</h4>
@@ -65,27 +64,24 @@
                     }
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-            <h4>Contact form:</h4>
-            <form method="POST" asp-controller="home" asp-action="SaveCustomerMessage">
-                <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
+        
+
+
+        <!-- <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <form method="POST" id="userMessage" action="#">
                 <div class="form-group">
-                    <input type="text" asp-for="Name" class="form-control" style="width: 100%" placeholder="name" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input name="name" type="text" class="form-control" style="width: 100%" placeholder="name" />
                 </div>
                 <div class="form-group">
-                    <input type="text" asp-for="Email" class="form-control" style="width: 100%;margin-top: 5px" placeholder="email" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <input name="email" type="text" class="form-control" style="width: 100%" placeholder="email" />
                 </div>
                 <div class="form-group">
-                    <textarea asp-for="Message" style="width: 100%;margin-top: 5px" rows="6" class="form-control" placeholder="message"></textarea>
-                    <span asp-validation-for="Message" class="text-danger"></span>
+                    <input name="message" type="text" class="form-control" style="width: 100%" placeholder="message" />
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LefzWMUAAAAAJMNLI6arAVzs_Z7nOIyk9bF8nDW"></div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Send" style="width: 100%;margin-top: 5px"/>
+                    <input type="button" id="sendMessage" class="btn btn-primary" value="Send" style="width: 100%;margin-top: 5px"/>
                 </div>
             </form>
-        </div>
+        </div> -->
     </div>
 </div>

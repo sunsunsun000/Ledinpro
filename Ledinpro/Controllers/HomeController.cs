@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -184,26 +185,27 @@ namespace Ledinpro.Controllers
         /// <param name="message">消息</param>
         [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveCustomerMessage([Bind("Name,Email,Message")] CustomerContactInfo customerContactInfo)
+        public ActionResult SaveCustomerMessage(string name, string email, string message)
         {
-            if (ModelState.IsValid)
-            {
-                if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
-                                    Configuration.GetSection("GoogleReCaptcha:secret").Value))
-                {
-                    ViewBag.ReCaptchaResult = "失败";
-                    return View("SendCustomerMessage");
-                }
-                // 这里不能过滤，信息可能不同
-                customerContactInfo.CreateDateTime = DateTime.Now;
-                _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
-                await _ledinproContext.SaveChangesAsync();
-            }
+            Console.WriteLine("ajax!");
+            return Json("false");
+            // if (ModelState.IsValid)
+            // {
+            //     if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
+            //                         Configuration.GetSection("GoogleReCaptcha:secret").Value))
+            //     {
+            //         ViewBag.ReCaptchaResult = "失败";
+            //         return Content("<script>alert('Send Failed!')</script>");
+            //     }
+            //     // 这里不能过滤，信息可能不同
+            //     customerContactInfo.CreateDateTime = DateTime.Now;
+            //     _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
+            //     await _ledinproContext.SaveChangesAsync();
+            // }
 
             // return this.Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", null);
-            ViewBag.ReCaptchaResult = "成功";
-            return View("SendCustomerMessage");
+            
+            // return Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", Encoding.ASCII);
         }
 
         public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret) {

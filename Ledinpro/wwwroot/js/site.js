@@ -1,4 +1,4 @@
-﻿// Write your JavaScript code.
+﻿// 植物灯页面脚本.
 $(document).ready(function () {
     // 菜单点击事件
     var currentClickMenu = ""
@@ -42,4 +42,18 @@ $(document).ready(function () {
         var scrollId = (1000000 + Number(this.id)).toString();
         $('html,body').animate({ scrollTop: $('#' + scrollId).offset().top - 93 }, 1000);
     });
+
+    // 留言信息ajax方法
+    // $("#sendMessage").click(function (){
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "SaveCustomerMessage",
+    //         data: $('#userMessage').serialize(),
+    //         contentType: "application/json; charset=utf-8",
+    //         dataType: "json",
+    //         success: function(result){
+    //             console.log(result.data);
+    //         }
+    //     });
+    // });
 })
