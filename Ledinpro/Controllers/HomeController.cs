@@ -190,11 +190,22 @@ namespace Ledinpro.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
-                                     Configuration.GetSection("GoogleReCaptcha:secret").Value))
+                try
                 {
-                    return Content("VerifyFailed");
+                    var key = Configuration.GetSection("GoogleReCaptcha:secret").Value;
+                    var response = Request.Form["g-recaptcha-response"];
+                    if (!ReCaptchaPassed(response, 
+                                        key))
+                    {
+                        return Content("VerifyFailed");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                    return Content("false");
+                }
+
                 // 这里不能过滤，信息可能不同
                 customerContactInfo.CreateDateTime = DateTime.Now;
                 _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
@@ -206,6 +217,7 @@ namespace Ledinpro.Controllers
             return Content("false");
         }
 
+        [AllowAnonymous]
         public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret) {
             HttpClient httpClient = new HttpClient();
             var res = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secret}&response={gRecaptchaResponse}").Result;
