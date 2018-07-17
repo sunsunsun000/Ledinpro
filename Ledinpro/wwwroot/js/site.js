@@ -44,16 +44,41 @@ $(document).ready(function () {
     });
 
     // 留言信息ajax方法
-    // $("#sendMessage").click(function (){
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "SaveCustomerMessage",
-    //         data: $('#userMessage').serialize(),
-    //         contentType: "application/json; charset=utf-8",
-    //         dataType: "json",
-    //         success: function(result){
-    //             console.log(result.data);
-    //         }
-    //     });
-    // });
+    $("#sendMessage").click(function () {
+        var model = $('#userMessage').serializeObject();
+
+        if (model.Name.length <= 0) {
+            alert("Please input name!")
+            return;
+        }
+
+        if (model.Email.length <= 0) {
+            alert("Please input message!")
+            return;
+        }
+
+        if (model.Message.length <= 0) {
+            alert("Please input message!")
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "SaveCustomerMessage",
+            data: JSON.stringify(model),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(result) {
+                if (result == true) {
+                    // 提交成功
+                    alert("Send Message Successfully!")
+                } else if (result == "VerifyFailed") {
+                    // 验证失败
+                    alert("Verify Failed!")
+                } else {
+                    alert("Send Message Failed!")
+                }
+            }
+        });
+    });
 })

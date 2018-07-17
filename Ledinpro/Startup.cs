@@ -88,6 +88,8 @@ namespace Ledinpro
                                 .Build();
 
                 mvcConfig.Filters.Add(new AuthorizeFilter(policy));
+            }).AddJsonOptions(joptions => {
+                joptions.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             });
 
             services.Configure<AuthMessageSenderOptions>(Configuration);

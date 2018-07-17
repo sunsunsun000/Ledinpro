@@ -16,6 +16,7 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ledinpro.Controllers
 {
@@ -185,27 +186,24 @@ namespace Ledinpro.Controllers
         /// <param name="message">消息</param>
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult SaveCustomerMessage(string name, string email, string message)
+        public async Task<IActionResult> SaveCustomerMessage([FromBody] CustomerContactInfo customerContactInfo)
         {
-            Console.WriteLine("ajax!");
-            return Json("false");
-            // if (ModelState.IsValid)
-            // {
-            //     if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
-            //                         Configuration.GetSection("GoogleReCaptcha:secret").Value))
-            //     {
-            //         ViewBag.ReCaptchaResult = "失败";
-            //         return Content("<script>alert('Send Failed!')</script>");
-            //     }
-            //     // 这里不能过滤，信息可能不同
-            //     customerContactInfo.CreateDateTime = DateTime.Now;
-            //     _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
-            //     await _ledinproContext.SaveChangesAsync();
-            // }
+            if (ModelState.IsValid)
+            {
+                if (!ReCaptchaPassed(Request.Form["g-recaptcha-response"], 
+                                     Configuration.GetSection("GoogleReCaptcha:secret").Value))
+                {
+                    return Content("VerifyFailed");
+                }
+                // 这里不能过滤，信息可能不同
+                customerContactInfo.CreateDateTime = DateTime.Now;
+                _ledinproContext.CustomerContactInfos.Add(customerContactInfo);
+                await _ledinproContext.SaveChangesAsync();
 
-            // return this.Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", null);
-            
-            // return Content("<script>alert('Send Successfully!')</script>", "application/x-javascript", Encoding.ASCII);
+                return Content("true");
+            }
+
+            return Content("false");
         }
 
         public static bool ReCaptchaPassed(string gRecaptchaResponse, string secret) {
@@ -226,21 +224,13 @@ namespace Ledinpro.Controllers
             return true;
         }
 
-        private bool ExistCustomerEmail(string email)
+        /// <summary>
+        /// 显示留言信息
+        /// </summary>
+        [Authorize(Roles = "内部员工,管理员")]
+        public async Task<IActionResult> CustomerContactInfo() 
         {
-            try {
-                var c = _ledinproContext.CustomerContactInfos.Single(cus => cus.Email.Equals(email));
-                if (c == null)
-                {
-                    return false;
-                }
-
-                return true;
-            }
-            catch (ArgumentNullException ex)
-            {
-                return false;
-            }
+            return View(await _ledinproContext.CustomerContactInfos.OrderByDescending(c => c.CreateDateTime).Take(300).ToListAsync());
         }
 
         public IActionResult Error()

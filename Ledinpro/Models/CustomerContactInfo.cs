@@ -13,7 +13,7 @@ namespace Ledinpro.Models
         /// </summary>
         [Required(ErrorMessage = "Please input name!")]
         [Display(Name = "姓名")]
-        [StringLength(32)]
+        [StringLength(32, ErrorMessage = "The field Name must be a string with a maximum length of 32.")]
         public string Name { get; set; }
 
         /// <summary>

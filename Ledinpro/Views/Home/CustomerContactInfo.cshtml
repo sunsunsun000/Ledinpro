@@ -1,0 +1,31 @@
+@model IEnumerable<Ledinpro.Models.CustomerContactInfo>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered table-responsive">
+    <head>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>留言</th>
+            <th>时间</th>
+        </tr>
+    </head>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Message</td>
+                <td>@item.CreateDateTime</td>
+            </tr>
+        }
+    </tbody>
+</table>
